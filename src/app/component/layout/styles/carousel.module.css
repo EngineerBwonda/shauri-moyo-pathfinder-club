@@ -1,0 +1,306 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Carousel.module.css
+   Pathfinder Club – Hero Carousel Styles
+   All styles live here so the component file stays clean.
+───────────────────────────────────────────────────────────────────────────── */
+
+/* ── Outer wrapper ─────────────────────────────────────────────────────────── */
+.carousel {
+  position: relative;
+  border-radius: 0px;
+  overflow: hidden;
+  /* Prevents layout shift during Bootstrap init */
+  background: #14532d;
+}
+
+/* Full-height inner track */
+.inner,
+.item {
+  height: 100%;
+}
+
+/* ── Image ─────────────────────────────────────────────────────────────────── */
+.image {
+  object-fit: fill;
+  object-position: center top;
+}
+
+/* ── Gradient overlay ──────────────────────────────────────────────────────── */
+/*
+  Two-stop gradient:
+  - Bottom: near-opaque dark green  → readable text + brand feel
+  - Top:    light dark tint          → image still visible
+*/
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 40, 15, 0.85) 0%,
+    rgba(10, 40, 15, 0.4) 45%,
+    rgba(0, 0, 0, 0.18) 100%
+  );
+  pointer-events: none;
+}
+
+/* Thin green shimmer line at the bottom edge */
+.accentLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #16a34a, #4ade80, #16a34a);
+  pointer-events: none;
+}
+
+/* ── Caption block ─────────────────────────────────────────────────────────── */
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 36px 40px 44px;
+  /* Animate up when slide becomes active */
+  animation: captionIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes captionIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Eyebrow label (e.g. "Outdoor Skills") */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #4ade80;
+  margin-bottom: 12px;
+}
+
+.eyebrowDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #4ade80;
+  flex-shrink: 0;
+}
+
+/* Main headline */
+.title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Italic portion of the headline */
+.title em {
+  font-style: italic;
+  font-weight: 400;
+  color: #86efac;
+}
+
+/* Body description */
+.description {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.68;
+  max-width: 520px;
+  margin-bottom: 22px;
+}
+
+/* CTA button */
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #16a34a;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition:
+    background 0.2s,
+    transform 0.18s;
+}
+
+.button:hover {
+  background: #15803d;
+  color: #ffffff;
+  transform: scale(1.04);
+}
+
+/* ── Arrow controls ────────────────────────────────────────────────────────── */
+.control {
+  /* Override Bootstrap's default wide zone */
+  width: 48px !important;
+  height: 48px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  transition:
+    background 0.2s,
+    transform 0.2s !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control:hover {
+  background: rgba(22, 163, 74, 0.55) !important;
+  transform: translateY(-50%) scale(1.08) !important;
+}
+
+/* Hide Bootstrap's default chevron icons — we use our own SVGs */
+.control .carousel-control-prev-icon,
+.control .carousel-control-next-icon {
+  display: none;
+}
+
+.arrow {
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+/* ── Line-style indicators (bottom-right) ──────────────────────────────────── */
+.indicators {
+  position: absolute;
+  bottom: 24px;
+  right: 28px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  /* Override Bootstrap's default centered position */
+  left: unset !important;
+  margin: 0 !important;
+}
+
+.indicator {
+  width: 24px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition:
+    width 0.35s ease,
+    background 0.35s ease;
+}
+
+.indicator.indicatorActive,
+.indicator:global(.active) {
+  width: 44px;
+  background: #4ade80;
+}
+
+/* ── Slide counter pill (top-left) ─────────────────────────────────────────── */
+.slideCounter {
+  position: absolute;
+  top: 22px;
+  left: 26px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.06em;
+}
+
+.counterSep {
+  opacity: 0.5;
+  margin: 0 2px;
+}
+
+/* ── Decorative cross (top-right) ──────────────────────────────────────────── */
+.decoCross {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  z-index: 10;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.decoCross svg {
+  width: 44px;
+  height: 44px;
+}
+
+/* ── Responsive adjustments ────────────────────────────────────────────────── */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .caption {
+    padding: 24px 24px 36px;
+  }
+
+  .slideCounter {
+    top: 14px;
+    left: 16px;
+  }
+
+  .decoCross {
+    display: none; /* hide decoration on small screens */
+  }
+
+  .indicators {
+    bottom: 16px;
+    right: 16px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .caption {
+    padding: 20px 18px 30px;
+  }
+
+  .description {
+    /* Hide long description on very small screens for cleanliness */
+    display: none;
+  }
+
+  .button {
+    padding: 10px 18px;
+    font-size: 0.85rem;
+  }
+
+  .control {
+    width: 38px !important;
+    height: 38px !important;
+  }
+}

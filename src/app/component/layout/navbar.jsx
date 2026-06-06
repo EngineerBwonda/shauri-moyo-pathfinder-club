@@ -1,0 +1,1094 @@
+// "use client";
+
+// import { useEffect } from "react";
+// import Link from "next/link";
+// import Image from "next/image";
+// import styles from "./styles/navbar.module.css";
+
+// // ─── Nav links data — edit here to add/remove pages ───────────────────────────
+
+// const NAV_LINKS = [
+//   { label: "Home", href: "/" },
+//   { label: "About Us", href: "/about" },
+//   { label: "Programme", href: "/programme" },
+//   { label: "Events", href: "/events" },
+//   { label: "Gallery", href: "/gallery" },
+//   { label: "Contact", href: "/contact" },
+// ];
+
+// // ─── Component ────────────────────────────────────────────────────────────────
+
+// export default function Navbar() {
+//   // Load Bootstrap JS once on the client
+//   useEffect(() => {
+//     import("bootstrap/dist/js/bootstrap.bundle.min.js");
+//   }, []);
+
+//   return (
+//     <>
+//       {/* ════════════════════════════════════════════════════════════════════
+//           NAVBAR
+//       ════════════════════════════════════════════════════════════════════ */}
+//       <nav className={`navbar navbar-expand-lg ${styles.navbar}`}>
+//         <div className={`container ${styles.navInner}`}>
+//           {/* ── Brand / Logo ── */}
+//           <Link href="/" className={`navbar-brand ${styles.brand}`}>
+//             {/* Swap src for your real logo */}
+//             <div className={styles.logoWrap}>
+//               <Image
+//                 src="/icons/logo.svg"
+//                 alt="Shauri Moyo Pathfinder Club Logo"
+//                 width={44}
+//                 height={44}
+//                 className={styles.logoImg}
+//               />
+//             </div>
+//             <div className={styles.brandText}>
+//               <span className={styles.brandName}>Shauri Moyo</span>
+//               <span className={styles.brandSub}>Pathfinder Club</span>
+//             </div>
+//           </Link>
+
+//           {/* ── Desktop nav links (hidden on mobile) ── */}
+//           <div
+//             className={`collapse navbar-collapse ${styles.desktopNav}`}
+//             id="mainNav"
+//           >
+//             <ul className={`navbar-nav ms-auto ${styles.navList}`}>
+//               {NAV_LINKS.map((link) => (
+//                 <li key={link.href} className="nav-item">
+//                   <Link
+//                     href={link.href}
+//                     className={`nav-link ${styles.navLink}`}
+//                   >
+//                     {link.label}
+//                   </Link>
+//                 </li>
+//               ))}
+//             </ul>
+
+//             {/* Desktop CTA button */}
+//             <Link href="/join" className={styles.ctaBtn}>
+//               Join Us
+//               <svg
+//                 width="14"
+//                 height="14"
+//                 viewBox="0 0 16 16"
+//                 fill="none"
+//                 aria-hidden="true"
+//               >
+//                 <path
+//                   d="M3 8h10M9 4l4 4-4 4"
+//                   stroke="currentColor"
+//                   strokeWidth="1.8"
+//                   strokeLinecap="round"
+//                   strokeLinejoin="round"
+//                 />
+//               </svg>
+//             </Link>
+//           </div>
+
+//           {/* ── Hamburger toggle (mobile only) ── */}
+//           <button
+//             className={`${styles.toggler}`}
+//             type="button"
+//             data-bs-toggle="offcanvas"
+//             data-bs-target="#mobileMenu"
+//             aria-controls="mobileMenu"
+//             aria-label="Open menu"
+//           >
+//             {/* Custom hamburger lines */}
+//             <span className={styles.hamburgerLine} />
+//             <span className={styles.hamburgerLine} />
+//             <span className={styles.hamburgerLine} />
+//           </button>
+//         </div>
+//       </nav>
+
+//       {/* ════════════════════════════════════════════════════════════════════
+//           OFFCANVAS — mobile side menu
+//       ════════════════════════════════════════════════════════════════════ */}
+//       <div
+//         className={`offcanvas offcanvas-end ${styles.offcanvas}`}
+//         tabIndex={-1}
+//         id="mobileMenu"
+//         aria-labelledby="mobileMenuLabel"
+//       >
+//         {/* ── Offcanvas header ── */}
+//         <div className={`offcanvas-header ${styles.offcanvasHeader}`}>
+//           {/* Logo + club name repeated in the drawer */}
+//           <div className={styles.offcanvasBrand}>
+//             <div className={styles.logoWrapSm}>
+//               <Image
+//                 src="/icons/logo.svg"
+//                 alt="Shauri Moyo Pathfinder Club"
+//                 width={36}
+//                 height={36}
+//               />
+//             </div>
+//             <div className={styles.brandText}>
+//               <span className={styles.brandName}>Shauri Moyo</span>
+//               <span className={styles.brandSub}>Pathfinder Club</span>
+//             </div>
+//           </div>
+
+//           {/* Close button */}
+//           <button
+//             type="button"
+//             className={styles.closeBtn}
+//             data-bs-dismiss="offcanvas"
+//             aria-label="Close menu"
+//           >
+//             <svg
+//               width="20"
+//               height="20"
+//               viewBox="0 0 24 24"
+//               fill="none"
+//               stroke="currentColor"
+//               strokeWidth="2"
+//               strokeLinecap="round"
+//               strokeLinejoin="round"
+//               aria-hidden="true"
+//             >
+//               <line x1="18" y1="6" x2="6" y2="18" />
+//               <line x1="6" y1="6" x2="18" y2="18" />
+//             </svg>
+//           </button>
+//         </div>
+
+//         {/* ── Divider ── */}
+//         <div className={styles.offcanvasDivider} />
+
+//         {/* ── Offcanvas body — nav links ── */}
+//         <div className={`offcanvas-body ${styles.offcanvasBody}`}>
+//           {/* Scripture / tagline above links */}
+//           <p className={styles.offcanvasVerse}>
+//             {/* "Train up a child in the way he should go…" — Prov 22:6 */}
+//             "Equipping young hearts to serve God and community."
+//           </p>
+
+//           <ul className={styles.offcanvasNavList}>
+//             {NAV_LINKS.map((link, i) => (
+//               <li key={link.href} className={styles.offcanvasNavItem}>
+//                 <Link
+//                   href={link.href}
+//                   className={styles.offcanvasNavLink}
+//                   data-bs-dismiss="offcanvas" // auto-closes drawer on tap
+//                 >
+//                   {/* Animated dot accent */}
+//                   <span className={styles.offcanvasLinkDot} />
+//                   {link.label}
+//                 </Link>
+//               </li>
+//             ))}
+//           </ul>
+
+//           {/* CTA inside drawer */}
+//           <div className={styles.offcanvasCta}>
+//             <Link
+//               href="/join"
+//               className={styles.offcanvasCtaBtn}
+//               data-bs-dismiss="offcanvas"
+//             >
+//               Join the Club
+//               <svg
+//                 width="15"
+//                 height="15"
+//                 viewBox="0 0 16 16"
+//                 fill="none"
+//                 aria-hidden="true"
+//               >
+//                 <path
+//                   d="M3 8h10M9 4l4 4-4 4"
+//                   stroke="currentColor"
+//                   strokeWidth="1.8"
+//                   strokeLinecap="round"
+//                   strokeLinejoin="round"
+//                 />
+//               </svg>
+//             </Link>
+//             <p className={styles.offcanvasCtaSub}>
+//               Registration is open · All ages 10–15
+//             </p>
+//           </div>
+
+//           {/* Bottom detail — cross decoration */}
+//           <div className={styles.offcanvasDeco} aria-hidden="true">
+//             <svg
+//               viewBox="0 0 48 48"
+//               fill="none"
+//               stroke="#16a34a"
+//               strokeWidth="1"
+//             >
+//               <line x1="24" y1="4" x2="24" y2="44" />
+//               <line x1="4" y1="24" x2="44" y2="24" />
+//             </svg>
+//           </div>
+//         </div>
+//       </div>
+//     </>
+//   );
+// }
+
+//=============================================================================
+
+"use client";
+
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import styles from "./styles/navbar.module.css";
+
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  { label: "Programme", href: "/programme" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Join Us", href: "/join" },
+  { label: "Contact", href: "/contact" },
+];
+
+export default function Navbar() {
+  const [offcanvasOpen, setOffcanvasOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeHref, setActiveHref] = useState("/");
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = offcanvasOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [offcanvasOpen]);
+
+  return (
+    <>
+      {/* ── Main Navbar ── */}
+      <nav
+        className={`navbar navbar-expand-lg   ${styles.navbar} ${scrolled ? styles.scrolled : ""}`}
+      >
+        <div className="container-xxl ">
+          {/* Brand */}
+          <Link
+            href="/"
+            className={`navbar-brand d-flex align-items-center gap-2 ${styles.brand}`}
+          >
+            <Image
+              src="/logoC.png"
+              alt="Pathfinder Club Logo"
+              width={70}
+              height={70}
+              className={styles.logoImg}
+              priority
+            />
+            <div className={`d-flex flex-column ${styles.brandText}`}>
+              <span className={styles.brandName}>
+                Shauri Moyo Pathfinder Club
+              </span>
+              <em className={styles.brandTagline}>Take the Advent Message</em>
+            </div>
+          </Link>
+
+          {/* Hamburger toggler */}
+          <button
+            className={`navbar-toggler border-0 shadow-none ${styles.toggler}`}
+            type="button"
+            onClick={() => setOffcanvasOpen(true)}
+            aria-label="Open navigation"
+          >
+            <span className={styles.togglerBar} />
+            <span className={styles.togglerBar} />
+            <span className={styles.togglerBar} />
+          </button>
+
+          {/* Desktop Links */}
+          <div className="collapse navbar-collapse justify-content-end">
+            <ul className={`navbar-nav align-items-center ${styles.navList}`}>
+              {navLinks.map(({ label, href }) => (
+                <li className="nav-item" key={label}>
+                  <Link
+                    href={href}
+                    className={`nav-link ${styles.navLink} ${activeHref === href ? styles.active : ""}`}
+                    onClick={() => setActiveHref(href)}
+                  >
+                    {label}
+                    <span className={styles.underline} />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      {/* ── Backdrop ── */}
+      <div
+        className={styles.backdrop}
+        style={{
+          opacity: offcanvasOpen ? 1 : 0,
+          pointerEvents: offcanvasOpen ? "all" : "none",
+        }}
+        onClick={() => setOffcanvasOpen(false)}
+      />
+
+      {/* ── Offcanvas Drawer ── */}
+      <div
+        className={`${styles.offcanvas} ${offcanvasOpen ? styles.offcanvasOpen : ""}`}
+      >
+        {/* Close */}
+        <div className="d-flex justify-content-end w-100">
+          <button
+            className={styles.closeBtn}
+            onClick={() => setOffcanvasOpen(false)}
+            aria-label="Close menu"
+          >
+            ✕
+          </button>
+        </div>
+
+        {/* Top third – logo + texts */}
+        <div
+          className={`d-flex flex-column align-items-center justify-content-center w-100 ${styles.offcanvasTop}`}
+        >
+          <Image
+            src="/logoC.png"
+            alt="Pathfinder Club Logo"
+            width={80}
+            height={80}
+            className={styles.offcanvasLogoImg}
+          />
+          <span className={`mt-3 text-center ${styles.offcanvasBrandName}`}>
+            Shauri Moyo Pathfinder Club
+          </span>
+          <em className={styles.offcanvasTagline}>Take the Advent Message</em>
+        </div>
+
+        {/* Divider */}
+        <hr className={styles.offcanvasDivider} />
+
+        {/* Centered links */}
+        <ul className={`navbar-nav w-100 ${styles.offcanvasNavList}`}>
+          {navLinks.map(({ label, href }) => (
+            <li className="nav-item text-center" key={label}>
+              <Link
+                href={href}
+                className={`nav-link ${styles.offcanvasLink} ${activeHref === href ? styles.offcanvasActive : ""}`}
+                onClick={() => {
+                  setActiveHref(href);
+                  setOffcanvasOpen(false);
+                }}
+              >
+                {label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
+  );
+}
+//=============================================================================
+
+// "use client";
+
+// import { useEffect } from "react";
+// import Link from "next/link";
+// import Image from "next/image";
+// import styles from "./styles/navbar.module.css";
+
+// export default function Navbar({
+//   logoSrc = "",
+//   logoAlt = "School Logo",
+//   logoText = "Shauri Moyo Pathfinder Club",
+//   height = 20,
+//   logoWidth = 100, // ← Adjustable
+//   logoHeight = 50, // ← Adjustable
+// }) {
+//   useEffect(() => {
+//     import("bootstrap/dist/js/bootstrap.bundle.min.js");
+//   }, []);
+
+//   return (
+//     <>
+//       <nav
+//         className={`navbar navbar-expand-lg shadow-lg ${styles.navbar}`}
+//         style={{ "--navbar-height": height }}
+//       >
+//         <div className="container-fluid">
+//           {/* Logo - Supports Image or Text */}
+//           <Link href="/" className={`${styles.navbarBrand} navbar-brand`}>
+//             {logoSrc ? (
+//               <Image
+//                 src={logoSrc}
+//                 alt={logoAlt}
+//                 width={logoWidth}
+//                 height={logoHeight}
+//                 className={styles.logoImage}
+//                 priority
+//               />
+//             ) : (
+//               logoText
+//             )}
+//           </Link>
+
+//           {/* Offcanvas Toggle Button */}
+//           <button
+//             className="btn btn-outline-secondary d-lg-none ms-auto"
+//             type="button"
+//             data-bs-toggle="offcanvas"
+//             data-bs-target="#offcanvasNavbar"
+//             aria-controls="offcanvasNavbar"
+//           >
+//             <span className="navbar-toggler-icon"></span>
+//           </button>
+
+//           {/* Desktop Menu */}
+//           <div
+//             className="collapse navbar-collapse d-none d-lg-flex"
+//             id="navbarSupportedContent"
+//           >
+//             <ul className={`navbar-nav ms-auto mb-2 mb-lg-0 ${styles.navList}`}>
+//               <li className="nav-item">
+//                 <Link href="/" className={`${styles.navLink} nav-link active`}>
+//                   Home
+//                 </Link>
+//               </li>
+//               <li className="nav-item">
+//                 <Link href="/about" className={`${styles.navLink} nav-link`}>
+//                   About Us
+//                 </Link>
+//               </li>
+
+//               <li className="nav-item dropdown">
+//                 <a
+//                   className={`${styles.dropdownToggle} nav-link dropdown-toggle`}
+//                   href="#"
+//                   role="button"
+//                   data-bs-toggle="dropdown"
+//                   aria-expanded="false"
+//                 >
+//                   Programs
+//                 </a>
+//                 <ul className={`dropdown-menu ${styles.dropdownMenu}`}>
+//                   <li>
+//                     <Link
+//                       href="/programs"
+//                       className={`dropdown-item ${styles.dropdownItem}`}
+//                     >
+//                       All Programs
+//                     </Link>
+//                   </li>
+//                   <li>
+//                     <Link
+//                       href="/programs/academic"
+//                       className={`dropdown-item ${styles.dropdownItem}`}
+//                     >
+//                       Academic
+//                     </Link>
+//                   </li>
+//                   <li>
+//                     <Link
+//                       href="/programs/extracurricular"
+//                       className={`dropdown-item ${styles.dropdownItem}`}
+//                     >
+//                       Extracurricular
+//                     </Link>
+//                   </li>
+//                 </ul>
+//               </li>
+
+//               <li className="nav-item">
+//                 <Link href="/gallery" className={`${styles.navLink} nav-link`}>
+//                   Gallery
+//                 </Link>
+//               </li>
+//               <li className="nav-item">
+//                 <Link href="/join" className={`${styles.navLink} nav-link`}>
+//                   Join Us
+//                 </Link>
+//               </li>
+//               <li className="nav-item">
+//                 <Link href="/contact" className={`${styles.navLink} nav-link`}>
+//                   Contact
+//                 </Link>
+//               </li>
+//             </ul>
+//           </div>
+//         </div>
+//       </nav>
+
+//       {/* ====================== OFFCANVAS ====================== */}
+//       <div
+//         className="offcanvas offcanvas-start"
+//         tabIndex="-1"
+//         id="offcanvasNavbar"
+//         aria-labelledby="offcanvasNavbarLabel"
+//       >
+//         <div className="offcanvas-header flex-column align-items-center border-bottom pb-3">
+//           {/* Logo at the top of Offcanvas */}
+//           <Link href="/" className="mb-3">
+//             {logoSrc ? (
+//               <Image
+//                 src={logoSrc}
+//                 alt={logoAlt}
+//                 width={logoWidth * 0.85} // Slightly smaller in offcanvas
+//                 height={logoHeight * 0.85}
+//                 className={styles.logoImage}
+//                 priority
+//               />
+//             ) : (
+//               <h5 className={`offcanvas-title ${styles.offcanvasTitle}`}>
+//                 {logoText}
+//               </h5>
+//             )}
+//           </Link>
+
+//           <button
+//             type="button"
+//             className="btn-close"
+//             data-bs-dismiss="offcanvas"
+//             aria-label="Close"
+//           ></button>
+//         </div>
+
+//         <div className="offcanvas-body">
+//           <ul
+//             className={`navbar-nav flex-grow-1 pe-3 ${styles.offcanvasNavList}`}
+//           >
+//             <li className="nav-item">
+//               <Link href="/" className={`${styles.navLink} nav-link active`}>
+//                 Home
+//               </Link>
+//             </li>
+//             <li className="nav-item">
+//               <Link href="/about" className={`${styles.navLink} nav-link`}>
+//                 About Us
+//               </Link>
+//             </li>
+//             <li className="nav-item dropdown">
+//               <a
+//                 className={`${styles.dropdownToggle} nav-link dropdown-toggle`}
+//                 href="#"
+//                 role="button"
+//                 data-bs-toggle="dropdown"
+//               >
+//                 Programs
+//               </a>
+//               <ul className={`dropdown-menu ${styles.dropdownMenu}`}>
+//                 <li>
+//                   <Link
+//                     href="/programs"
+//                     className={`dropdown-item ${styles.dropdownItem}`}
+//                   >
+//                     All Programs
+//                   </Link>
+//                 </li>
+//                 <li>
+//                   <Link
+//                     href="/programs/academic"
+//                     className={`dropdown-item ${styles.dropdownItem}`}
+//                   >
+//                     Academic
+//                   </Link>
+//                 </li>
+//                 <li>
+//                   <Link
+//                     href="/programs/extracurricular"
+//                     className={`dropdown-item ${styles.dropdownItem}`}
+//                   >
+//                     Extracurricular
+//                   </Link>
+//                 </li>
+//               </ul>
+//             </li>
+//             <li className="nav-item">
+//               <Link href="/gallery" className={`${styles.navLink} nav-link`}>
+//                 Gallery
+//               </Link>
+//             </li>
+//             <li className="nav-item">
+//               <Link href="/join" className={`${styles.navLink} nav-link`}>
+//                 Join Us
+//               </Link>
+//             </li>
+//             <li className="nav-item">
+//               <Link href="/contact" className={`${styles.navLink} nav-link`}>
+//                 Contact
+//               </Link>
+//             </li>
+//           </ul>
+//         </div>
+//       </div>
+//     </>
+//   );
+// }
+//-------------====================================================================================================================================================================================
+
+// "use client";
+
+// import { useEffect } from "react";
+// import Link from "next/link";
+// import Image from "next/image";
+// import styles from "./styles/navbar.module.css";
+
+// export default function Navbar({
+//   logoSrc = "/logoB.png",
+//   logoAlt = "School Logo",
+//   logoText = "Your School Name",
+//   logoWidth = 160,
+//   logoHeight = 70,
+// }) {
+//   useEffect(() => {
+//     import("bootstrap/dist/js/bootstrap.bundle.min.js");
+//   }, []);
+
+//   return (
+//     <>
+//       <nav
+//         className={`navbar navbar-expand-lg ${styles.navbar}`}
+//       >
+//         <div className="container-fluid">
+//           {/* Logo - Supports Image or Text */}
+//           <Link href="/" className={`${styles.navbarBrand} navbar-brand`}>
+//             {logoSrc ? (
+//               <Image
+//                 src={logoSrc}
+//                 alt={logoAlt}
+//                 width={logoWidth}
+//                 height={logoHeight}
+//                 className={styles.logoImage}
+//                 priority
+//               />
+//             ) : (
+//               logoText
+//             )}
+//           </Link>
+
+//           {/* Offcanvas Toggle Button */}
+//           <button
+//             className="btn btn-outline-secondary d-lg-none ms-auto"
+//             type="button"
+//             data-bs-toggle="offcanvas"
+//             data-bs-target="#offcanvasNavbar"
+//             aria-controls="offcanvasNavbar"
+//           >
+//             <span className="navbar-toggler-icon"></span>
+//           </button>
+
+//           {/* Desktop Menu */}
+//           <div
+//             className="collapse navbar-collapse d-none d-lg-flex"
+//             id="navbarSupportedContent"
+//           >
+//             <ul className={`navbar-nav ms-auto mb-2 mb-lg-0 ${styles.navList}`}>
+//               <li className="nav-item">
+//                 <Link href="/" className={`${styles.navLink} nav-link active`}>
+//                   Home
+//                 </Link>
+//               </li>
+//               <li className="nav-item">
+//                 <Link href="/about" className={`${styles.navLink} nav-link`}>
+//                   About Us
+//                 </Link>
+//               </li>
+
+//               <li className="nav-item dropdown">
+//                 <a
+//                   className={`${styles.dropdownToggle} nav-link dropdown-toggle`}
+//                   href="#"
+//                   role="button"
+//                   data-bs-toggle="dropdown"
+//                   aria-expanded="false"
+//                 >
+//                   Programs
+//                 </a>
+//                 <ul className={`dropdown-menu ${styles.dropdownMenu}`}>
+//                   <li>
+//                     <Link
+//                       href="/programs"
+//                       className={`dropdown-item ${styles.dropdownItem}`}
+//                     >
+//                       All Programs
+//                     </Link>
+//                   </li>
+//                   <li>
+//                     <Link
+//                       href="/programs/academic"
+//                       className={`dropdown-item ${styles.dropdownItem}`}
+//                     >
+//                       Academic
+//                     </Link>
+//                   </li>
+//                   <li>
+//                     <Link
+//                       href="/programs/extracurricular"
+//                       className={`dropdown-item ${styles.dropdownItem}`}
+//                     >
+//                       Extracurricular
+//                     </Link>
+//                   </li>
+//                 </ul>
+//               </li>
+
+//               <li className="nav-item">
+//                 <Link href="/gallery" className={`${styles.navLink} nav-link`}>
+//                   Gallery
+//                 </Link>
+//               </li>
+//               <li className="nav-item">
+//                 <Link href="/join" className={`${styles.navLink} nav-link`}>
+//                   Join Us
+//                 </Link>
+//               </li>
+//               <li className="nav-item">
+//                 <Link href="/contact" className={`${styles.navLink} nav-link`}>
+//                   Contact
+//                 </Link>
+//               </li>
+//             </ul>
+//           </div>
+//         </div>
+//       </nav>
+
+//       {/* ====================== OFFCANVAS ====================== */}
+//       <div
+//         className="offcanvas offcanvas-start"
+//         tabIndex="-1"
+//         id="offcanvasNavbar"
+//         aria-labelledby="offcanvasNavbarLabel"
+//       >
+//         <div className="offcanvas-header flex-column align-items-center border-bottom pb-3">
+//           {/* Logo at the top of Offcanvas */}
+//           <Link href="/" className="mb-3">
+//             {logoSrc ? (
+//               <Image
+//                 src={logoSrc}
+//                 alt={logoAlt}
+//                 width={logoWidth * 0.85}
+//                 height={logoHeight * 0.85}
+//                 className={styles.logoImage}
+//                 priority
+//               />
+//             ) : (
+//               <h5 className={`offcanvas-title ${styles.offcanvasTitle}`}>
+//                 {logoText}
+//               </h5>
+//             )}
+//           </Link>
+
+//           <button
+//             type="button"
+//             className="btn-close"
+//             data-bs-dismiss="offcanvas"
+//             aria-label="Close"
+//           ></button>
+//         </div>
+//         <ul
+//           className={`navbar-nav flex-grow-1 pe-3 ${styles.offcanvasNavList}`}
+//         >
+//           <li className="nav-item">
+//             <Link href="/" className={`${styles.navLink} nav-link active`}>
+//               Home
+//             </Link>
+//           </li>
+//           <li className="nav-item">
+//             <Link href="/about" className={`${styles.navLink} nav-link`}>
+//               About Us
+//             </Link>
+//           </li>
+//           <li className="nav-item dropdown">
+//             <a
+//               className={`${styles.dropdownToggle} nav-link dropdown-toggle`}
+//               href="#"
+//               role="button"
+//               data-bs-toggle="dropdown"
+//             >
+//               Programs
+//             </a>
+//             <ul className={`dropdown-menu ${styles.dropdownMenu}`}>
+//               <li>
+//                 <Link
+//                   href="/programs"
+//                   className={`dropdown-item ${styles.dropdownItem}`}
+//                 >
+//                   All Programs
+//                 </Link>
+//               </li>
+//               <li>
+//                 <Link
+//                   href="/programs/academic"
+//                   className={`dropdown-item ${styles.dropdownItem}`}
+//                 >
+//                   Academic
+//                 </Link>
+//               </li>
+//               <li>
+//                 <Link
+//                   href="/programs/extracurricular"
+//                   className={`dropdown-item ${styles.dropdownItem}`}
+//                 >
+//                   Extracurricular
+//                 </Link>
+//               </li>
+//             </ul>
+//           </li>
+//           <li className="nav-item">
+//             <Link href="/gallery" className={`${styles.navLink} nav-link`}>
+//               Gallery
+//             </Link>
+//           </li>
+//           <li className="nav-item">
+//             <Link href="/join" className={`${styles.navLink} nav-link`}>
+//               Join Us
+//             </Link>
+//           </li>
+//           <li className="nav-item">
+//             <Link href="/contact" className={`${styles.navLink} nav-link`}>
+//               Contact
+//             </Link>
+//           </li>
+//         </ul>
+//       </div>
+//     </>
+//   );
+// }
+
+// "use client";
+
+// import { useEffect } from "react";
+// import Link from "next/link";
+// import Image from "next/image"; // Recommended for Next.js
+// import styles from "./styles/navbar.module.css";
+
+// export default function Navbar({
+//   logoSrc = "", // Path to logo image
+//   logoAlt = "School Logo",
+//   logoText = "Your School Name",
+//   height = "60px",
+// }) {
+//   useEffect(() => {
+//     import("bootstrap/dist/js/bootstrap.bundle.min.js");
+//   }, []);
+
+//   return (
+//     <>
+//       <nav
+//         className={`navbar navbar-expand-lg ${styles.navbar}`}
+//         style={{ "--navbar-height": height }}
+//       >
+//         <div className="container-fluid">
+//           {/* Logo - Supports Image or Text */}
+//           <Link
+//             href="/public/logoA.png"
+//             className={`${styles.navbarBrand} navbar-brand`}
+//           >
+//             {logoSrc ? (
+//               <Image
+//                 src={logoSrc}
+//                 alt={logoAlt}
+//                 width={160}
+//                 height={170}
+//                 className={styles.logoImage}
+//                 priority
+//               />
+//             ) : (
+//               logoText
+//             )}
+//           </Link>
+
+//           {/* Offcanvas Toggle Button - Right on mobile */}
+//           <button
+//             className="btn btn-outline-secondary d-lg-none ms-auto"
+//             type="button"
+//             data-bs-toggle="offcanvas"
+//             data-bs-target="#offcanvasNavbar"
+//             aria-controls="offcanvasNavbar"
+//           >
+//             <span className="navbar-toggler-icon"></span>
+//           </button>
+
+//           {/* Desktop Menu */}
+//           <div
+//             className="collapse navbar-collapse d-none d-lg-flex"
+//             id="navbarSupportedContent"
+//           >
+//             <ul className={`navbar-nav ms-auto mb-2 mb-lg-0 ${styles.navList}`}>
+//               <li className="nav-item">
+//                 <Link href="/" className={`${styles.navLink} nav-link active`}>
+//                   Home
+//                 </Link>
+//               </li>
+//               <li className="nav-item">
+//                 <Link href="/about" className={`${styles.navLink} nav-link`}>
+//                   About Us
+//                 </Link>
+//               </li>
+
+//               <li className="nav-item dropdown">
+//                 <a
+//                   className={`${styles.dropdownToggle} nav-link dropdown-toggle`}
+//                   href="#"
+//                   role="button"
+//                   data-bs-toggle="dropdown"
+//                   aria-expanded="false"
+//                 >
+//                   Programs
+//                 </a>
+//                 <ul className={`dropdown-menu ${styles.dropdownMenu}`}>
+//                   <li>
+//                     <Link
+//                       href="/programs"
+//                       className={`dropdown-item ${styles.dropdownItem}`}
+//                     >
+//                       All Programs
+//                     </Link>
+//                   </li>
+//                   <li>
+//                     <Link
+//                       href="/programs/academic"
+//                       className={`dropdown-item ${styles.dropdownItem}`}
+//                     >
+//                       Academic
+//                     </Link>
+//                   </li>
+//                   <li>
+//                     <Link
+//                       href="/programs/extracurricular"
+//                       className={`dropdown-item ${styles.dropdownItem}`}
+//                     >
+//                       Extracurricular
+//                     </Link>
+//                   </li>
+//                 </ul>
+//               </li>
+
+//               <li className="nav-item">
+//                 <Link href="/gallery" className={`${styles.navLink} nav-link`}>
+//                   Gallery
+//                 </Link>
+//               </li>
+
+//               <li className="nav-item">
+//                 <Link href="/join" className={`${styles.navLink} nav-link`}>
+//                   Join Us
+//                 </Link>
+//               </li>
+
+//               <li className="nav-item">
+//                 <Link href="/contact" className={`${styles.navLink} nav-link`}>
+//                   Contact
+//                 </Link>
+//               </li>
+//             </ul>
+
+//             {/* Search Form */}
+//             <form className="d-flex ms-lg-3" role="search">
+//               <input
+//                 className="form-control me-2"
+//                 type="search"
+//                 placeholder="Search..."
+//                 aria-label="Search"
+//               />
+//               <button className="btn btn-outline-primary" type="submit">
+//                 Search
+//               </button>
+//             </form>
+//           </div>
+//         </div>
+//       </nav>
+
+//       {/* Left Offcanvas */}
+//       <div
+//         className="offcanvas offcanvas-start"
+//         tabIndex="-1"
+//         id="offcanvasNavbar"
+//         aria-labelledby="offcanvasNavbarLabel"
+//       >
+//         <div className="offcanvas-header">
+//           <h5
+//             className={`offcanvas-title ${styles.offcanvasTitle}`}
+//             id="offcanvasNavbarLabel"
+//           >
+//             Menu
+//           </h5>
+//           <button
+//             type="button"
+//             className="btn-close"
+//             data-bs-dismiss="offcanvas"
+//             aria-label="Close"
+//           ></button>
+//         </div>
+//         <div className="offcanvas-body">
+//           <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+//             <li className="nav-item">
+//               <Link href="/" className={`${styles.navLink} nav-link active`}>
+//                 Home
+//               </Link>
+//             </li>
+//             <li className="nav-item">
+//               <Link href="/about" className={`${styles.navLink} nav-link`}>
+//                 About Us
+//               </Link>
+//             </li>
+//             <li className="nav-item dropdown">
+//               <a
+//                 className={`${styles.dropdownToggle} nav-link dropdown-toggle`}
+//                 href="#"
+//                 role="button"
+//                 data-bs-toggle="dropdown"
+//               >
+//                 Programs
+//               </a>
+//               <ul className={`dropdown-menu ${styles.dropdownMenu}`}>
+//                 <li>
+//                   <Link
+//                     href="/programs"
+//                     className={`dropdown-item ${styles.dropdownItem}`}
+//                   >
+//                     All Programs
+//                   </Link>
+//                 </li>
+//                 <li>
+//                   <Link
+//                     href="/programs/academic"
+//                     className={`dropdown-item ${styles.dropdownItem}`}
+//                   >
+//                     Academic
+//                   </Link>
+//                 </li>
+//                 <li>
+//                   <Link
+//                     href="/programs/extracurricular"
+//                     className={`dropdown-item ${styles.dropdownItem}`}
+//                   >
+//                     Extracurricular
+//                   </Link>
+//                 </li>
+//               </ul>
+//             </li>
+//             <li className="nav-item">
+//               <Link href="/gallery" className={`${styles.navLink} nav-link`}>
+//                 Gallery
+//               </Link>
+//             </li>
+//             <li className="nav-item">
+//               <Link href="/join" className={`${styles.navLink} nav-link`}>
+//                 Join Us
+//               </Link>
+//             </li>
+//             <li className="nav-item">
+//               <Link href="/contact" className={`${styles.navLink} nav-link`}>
+//                 Contact
+//               </Link>
+//             </li>
+//           </ul>
+//         </div>
+//       </div>
+//     </>
+//   );
+// }
