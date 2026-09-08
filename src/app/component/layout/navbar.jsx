@@ -1,397 +1,442 @@
-// "use client";
-
-// import { useEffect } from "react";
-// import Link from "next/link";
-// import Image from "next/image";
-// import styles from "./styles/navbar.module.css";
-
-// // ─── Nav links data — edit here to add/remove pages ───────────────────────────
-
-// const NAV_LINKS = [
-//   { label: "Home", href: "/" },
-//   { label: "About Us", href: "/about" },
-//   { label: "Programme", href: "/programme" },
-//   { label: "Events", href: "/events" },
-//   { label: "Gallery", href: "/gallery" },
-//   { label: "Contact", href: "/contact" },
-// ];
-
-// // ─── Component ────────────────────────────────────────────────────────────────
-
-// export default function Navbar() {
-//   // Load Bootstrap JS once on the client
-//   useEffect(() => {
-//     import("bootstrap/dist/js/bootstrap.bundle.min.js");
-//   }, []);
-
-//   return (
-//     <>
-//       {/* ════════════════════════════════════════════════════════════════════
-//           NAVBAR
-//       ════════════════════════════════════════════════════════════════════ */}
-//       <nav className={`navbar navbar-expand-lg ${styles.navbar}`}>
-//         <div className={`container ${styles.navInner}`}>
-//           {/* ── Brand / Logo ── */}
-//           <Link href="/" className={`navbar-brand ${styles.brand}`}>
-//             {/* Swap src for your real logo */}
-//             <div className={styles.logoWrap}>
-//               <Image
-//                 src="/icons/logo.svg"
-//                 alt="Shauri Moyo Pathfinder Club Logo"
-//                 width={44}
-//                 height={44}
-//                 className={styles.logoImg}
-//               />
-//             </div>
-//             <div className={styles.brandText}>
-//               <span className={styles.brandName}>Shauri Moyo</span>
-//               <span className={styles.brandSub}>Pathfinder Club</span>
-//             </div>
-//           </Link>
-
-//           {/* ── Desktop nav links (hidden on mobile) ── */}
-//           <div
-//             className={`collapse navbar-collapse ${styles.desktopNav}`}
-//             id="mainNav"
-//           >
-//             <ul className={`navbar-nav ms-auto ${styles.navList}`}>
-//               {NAV_LINKS.map((link) => (
-//                 <li key={link.href} className="nav-item">
-//                   <Link
-//                     href={link.href}
-//                     className={`nav-link ${styles.navLink}`}
-//                   >
-//                     {link.label}
-//                   </Link>
-//                 </li>
-//               ))}
-//             </ul>
-
-//             {/* Desktop CTA button */}
-//             <Link href="/join" className={styles.ctaBtn}>
-//               Join Us
-//               <svg
-//                 width="14"
-//                 height="14"
-//                 viewBox="0 0 16 16"
-//                 fill="none"
-//                 aria-hidden="true"
-//               >
-//                 <path
-//                   d="M3 8h10M9 4l4 4-4 4"
-//                   stroke="currentColor"
-//                   strokeWidth="1.8"
-//                   strokeLinecap="round"
-//                   strokeLinejoin="round"
-//                 />
-//               </svg>
-//             </Link>
-//           </div>
-
-//           {/* ── Hamburger toggle (mobile only) ── */}
-//           <button
-//             className={`${styles.toggler}`}
-//             type="button"
-//             data-bs-toggle="offcanvas"
-//             data-bs-target="#mobileMenu"
-//             aria-controls="mobileMenu"
-//             aria-label="Open menu"
-//           >
-//             {/* Custom hamburger lines */}
-//             <span className={styles.hamburgerLine} />
-//             <span className={styles.hamburgerLine} />
-//             <span className={styles.hamburgerLine} />
-//           </button>
-//         </div>
-//       </nav>
-
-//       {/* ════════════════════════════════════════════════════════════════════
-//           OFFCANVAS — mobile side menu
-//       ════════════════════════════════════════════════════════════════════ */}
-//       <div
-//         className={`offcanvas offcanvas-end ${styles.offcanvas}`}
-//         tabIndex={-1}
-//         id="mobileMenu"
-//         aria-labelledby="mobileMenuLabel"
-//       >
-//         {/* ── Offcanvas header ── */}
-//         <div className={`offcanvas-header ${styles.offcanvasHeader}`}>
-//           {/* Logo + club name repeated in the drawer */}
-//           <div className={styles.offcanvasBrand}>
-//             <div className={styles.logoWrapSm}>
-//               <Image
-//                 src="/icons/logo.svg"
-//                 alt="Shauri Moyo Pathfinder Club"
-//                 width={36}
-//                 height={36}
-//               />
-//             </div>
-//             <div className={styles.brandText}>
-//               <span className={styles.brandName}>Shauri Moyo</span>
-//               <span className={styles.brandSub}>Pathfinder Club</span>
-//             </div>
-//           </div>
-
-//           {/* Close button */}
-//           <button
-//             type="button"
-//             className={styles.closeBtn}
-//             data-bs-dismiss="offcanvas"
-//             aria-label="Close menu"
-//           >
-//             <svg
-//               width="20"
-//               height="20"
-//               viewBox="0 0 24 24"
-//               fill="none"
-//               stroke="currentColor"
-//               strokeWidth="2"
-//               strokeLinecap="round"
-//               strokeLinejoin="round"
-//               aria-hidden="true"
-//             >
-//               <line x1="18" y1="6" x2="6" y2="18" />
-//               <line x1="6" y1="6" x2="18" y2="18" />
-//             </svg>
-//           </button>
-//         </div>
-
-//         {/* ── Divider ── */}
-//         <div className={styles.offcanvasDivider} />
-
-//         {/* ── Offcanvas body — nav links ── */}
-//         <div className={`offcanvas-body ${styles.offcanvasBody}`}>
-//           {/* Scripture / tagline above links */}
-//           <p className={styles.offcanvasVerse}>
-//             {/* "Train up a child in the way he should go…" — Prov 22:6 */}
-//             "Equipping young hearts to serve God and community."
-//           </p>
-
-//           <ul className={styles.offcanvasNavList}>
-//             {NAV_LINKS.map((link, i) => (
-//               <li key={link.href} className={styles.offcanvasNavItem}>
-//                 <Link
-//                   href={link.href}
-//                   className={styles.offcanvasNavLink}
-//                   data-bs-dismiss="offcanvas" // auto-closes drawer on tap
-//                 >
-//                   {/* Animated dot accent */}
-//                   <span className={styles.offcanvasLinkDot} />
-//                   {link.label}
-//                 </Link>
-//               </li>
-//             ))}
-//           </ul>
-
-//           {/* CTA inside drawer */}
-//           <div className={styles.offcanvasCta}>
-//             <Link
-//               href="/join"
-//               className={styles.offcanvasCtaBtn}
-//               data-bs-dismiss="offcanvas"
-//             >
-//               Join the Club
-//               <svg
-//                 width="15"
-//                 height="15"
-//                 viewBox="0 0 16 16"
-//                 fill="none"
-//                 aria-hidden="true"
-//               >
-//                 <path
-//                   d="M3 8h10M9 4l4 4-4 4"
-//                   stroke="currentColor"
-//                   strokeWidth="1.8"
-//                   strokeLinecap="round"
-//                   strokeLinejoin="round"
-//                 />
-//               </svg>
-//             </Link>
-//             <p className={styles.offcanvasCtaSub}>
-//               Registration is open · All ages 10–15
-//             </p>
-//           </div>
-
-//           {/* Bottom detail — cross decoration */}
-//           <div className={styles.offcanvasDeco} aria-hidden="true">
-//             <svg
-//               viewBox="0 0 48 48"
-//               fill="none"
-//               stroke="#16a34a"
-//               strokeWidth="1"
-//             >
-//               <line x1="24" y1="4" x2="24" y2="44" />
-//               <line x1="4" y1="24" x2="44" y2="24" />
-//             </svg>
-//           </div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
-
-//=============================================================================
-
 "use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import styles from "./styles/navbar.module.css";
+import { usePathname } from "next/navigation";
+import styles from "./styles/navbar2.module.css";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
-  { label: "Programme", href: "/programme" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "Join Us", href: "/join" },
-  { label: "Contact", href: "/contact" },
+  { label: "About Us", href: "/pages/about" },
+  { label: "Programme", href: "/pages/programme" },
+  { label: "Gallery", href: "/pages/gallery" },
+  { label: "Contact", href: "/pages/contact" },
 ];
 
 export default function Navbar() {
   const [offcanvasOpen, setOffcanvasOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeHref, setActiveHref] = useState("/");
+
+  const pathname = usePathname();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 30);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   useEffect(() => {
     document.body.style.overflow = offcanvasOpen ? "hidden" : "";
+
     return () => {
       document.body.style.overflow = "";
     };
   }, [offcanvasOpen]);
 
+  useEffect(() => {
+    setOffcanvasOpen(false);
+  }, [pathname]);
+
+  const isActive = (href) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+
+    return pathname.startsWith(href);
+  };
+
   return (
     <>
-      {/* ── Main Navbar ── */}
-      <nav
-        className={`navbar navbar-expand-lg   ${styles.navbar} ${scrolled ? styles.scrolled : ""}`}
-      >
-        <div className="container-xxl ">
-          {/* Brand */}
-          <Link
-            href="/"
-            className={`navbar-brand d-flex align-items-center gap-2 ${styles.brand}`}
-          >
-            <Image
-              src="/logoC.png"
-              alt="Pathfinder Club Logo"
-              width={70}
-              height={70}
-              className={styles.logoImg}
-              priority
-            />
-            <div className={`d-flex flex-column ${styles.brandText}`}>
-              <span className={styles.brandName}>
-                Shauri Moyo Pathfinder Club
+      {/* =========================================================
+          NAVBAR
+      ========================================================== */}
+      <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
+        <div className={styles.navContainer}>
+          {/* =====================================================
+              BRAND
+          ====================================================== */}
+          <Link href="/" className={styles.brand}>
+            <div className={styles.logoWrapper}>
+              <Image
+                src="/logoC.png"
+                alt="Shauri Moyo Pathfinder Club"
+                width={64}
+                height={64}
+                className={styles.logo}
+                priority
+              />
+            </div>
+
+            <div className={styles.brandContent}>
+              <span className={styles.brandName}>SHAURI MOYO</span>
+
+              <span className={styles.brandClub}>PATHFINDER CLUB</span>
+
+              <span className={styles.brandTagline}>
+                Take the Advent Message
               </span>
-              <em className={styles.brandTagline}>Take the Advent Message</em>
             </div>
           </Link>
 
-          {/* Hamburger toggler */}
-          <button
-            className={`navbar-toggler border-0 shadow-none ${styles.toggler}`}
-            type="button"
-            onClick={() => setOffcanvasOpen(true)}
-            aria-label="Open navigation"
-          >
-            <span className={styles.togglerBar} />
-            <span className={styles.togglerBar} />
-            <span className={styles.togglerBar} />
-          </button>
+          {/* =====================================================
+              DESKTOP NAVIGATION
+          ====================================================== */}
+          <div className={styles.desktopNavigation}>
+            <div className={styles.navLabel}>
+              <span className={styles.navLabelLine}></span>
+              NAVIGATION
+            </div>
 
-          {/* Desktop Links */}
-          <div className="collapse navbar-collapse justify-content-end">
-            <ul className={`navbar-nav align-items-center ${styles.navList}`}>
-              {navLinks.map(({ label, href }) => (
-                <li className="nav-item" key={label}>
+            <ul className={styles.navList}>
+              {navLinks.map((link) => (
+                <li key={link.href} className={styles.navItem}>
                   <Link
-                    href={href}
-                    className={`nav-link ${styles.navLink} ${activeHref === href ? styles.active : ""}`}
-                    onClick={() => setActiveHref(href)}
+                    href={link.href}
+                    className={`${styles.navLink} ${
+                      isActive(link.href) ? styles.active : ""
+                    }`}
                   >
-                    {label}
-                    <span className={styles.underline} />
+                    <span className={styles.navNumber}>{link.short}</span>
+
+                    <span className={styles.navText}>{link.label}</span>
+
+                    <span className={styles.navIndicator}></span>
                   </Link>
                 </li>
               ))}
+
+              {/* JOIN US CTA */}
+              <li className={styles.navItem}>
+                <Link
+                  href="/join"
+                  className={`${styles.joinButton} ${
+                    isActive("/join") ? styles.joinActive : ""
+                  }`}
+                >
+                  <span>JOIN US</span>
+
+                  <span className={styles.joinArrow}>→</span>
+                </Link>
+              </li>
             </ul>
           </div>
-        </div>
-      </nav>
 
-      {/* ── Backdrop ── */}
-      <div
-        className={styles.backdrop}
-        style={{
-          opacity: offcanvasOpen ? 1 : 0,
-          pointerEvents: offcanvasOpen ? "all" : "none",
-        }}
-        onClick={() => setOffcanvasOpen(false)}
-      />
-
-      {/* ── Offcanvas Drawer ── */}
-      <div
-        className={`${styles.offcanvas} ${offcanvasOpen ? styles.offcanvasOpen : ""}`}
-      >
-        {/* Close */}
-        <div className="d-flex justify-content-end w-100">
+          {/* =====================================================
+              MOBILE TOGGLE
+          ====================================================== */}
           <button
-            className={styles.closeBtn}
-            onClick={() => setOffcanvasOpen(false)}
-            aria-label="Close menu"
+            className={`${styles.menuButton} ${
+              offcanvasOpen ? styles.menuButtonActive : ""
+            }`}
+            onClick={() => setOffcanvasOpen(true)}
+            aria-label="Open navigation menu"
+            aria-expanded={offcanvasOpen}
           >
-            ✕
+            <span className={styles.menuText}>MENU</span>
+
+            <span className={styles.menuIcon}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
           </button>
         </div>
 
-        {/* Top third – logo + texts */}
-        <div
-          className={`d-flex flex-column align-items-center justify-content-center w-100 ${styles.offcanvasTop}`}
-        >
-          <Image
-            src="/logoC.png"
-            alt="Pathfinder Club Logo"
-            width={80}
-            height={80}
-            className={styles.offcanvasLogoImg}
-          />
-          <span className={`mt-3 text-center ${styles.offcanvasBrandName}`}>
-            Shauri Moyo Pathfinder Club
-          </span>
-          <em className={styles.offcanvasTagline}>Take the Advent Message</em>
+        {/* Bottom structural line */}
+        <div className={styles.navBottomLine}>
+          <span></span>
+        </div>
+      </nav>
+
+      {/* =========================================================
+          BACKDROP
+      ========================================================== */}
+      <div
+        className={`${styles.backdrop} ${
+          offcanvasOpen ? styles.backdropVisible : ""
+        }`}
+        onClick={() => setOffcanvasOpen(false)}
+        aria-hidden="true"
+      />
+
+      {/* =========================================================
+          MOBILE OFFCANVAS
+      ========================================================== */}
+      <aside
+        className={`${styles.offcanvas} ${
+          offcanvasOpen ? styles.offcanvasOpen : ""
+        }`}
+        aria-hidden={!offcanvasOpen}
+      >
+        {/* Drawer Header */}
+        <div className={styles.offcanvasHeader}>
+          <span className={styles.drawerLabel}>PATHFINDER / MENU</span>
+
+          <button
+            className={styles.closeButton}
+            onClick={() => setOffcanvasOpen(false)}
+            aria-label="Close navigation menu"
+          >
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        {/* =====================================================
+            MOBILE BRAND
+        ====================================================== */}
+        <div className={styles.mobileBrand}>
+          <div className={styles.mobileLogoWrapper}>
+            <Image
+              src="/logoC.png"
+              alt="Shauri Moyo Pathfinder Club"
+              width={90}
+              height={90}
+              className={styles.mobileLogo}
+            />
+          </div>
+
+          <div className={styles.mobileBrandInfo}>
+            <span className={styles.mobileBrandName}>SHAURI MOYO</span>
+
+            <span className={styles.mobileBrandClub}>PATHFINDER CLUB</span>
+
+            <em>Take the Advent Message</em>
+          </div>
         </div>
 
         {/* Divider */}
-        <hr className={styles.offcanvasDivider} />
+        <div className={styles.drawerDivider}>
+          <span>01</span>
+          <div></div>
+          <span>MENU</span>
+        </div>
 
-        {/* Centered links */}
-        <ul className={`navbar-nav w-100 ${styles.offcanvasNavList}`}>
-          {navLinks.map(({ label, href }) => (
-            <li className="nav-item text-center" key={label}>
-              <Link
-                href={href}
-                className={`nav-link ${styles.offcanvasLink} ${activeHref === href ? styles.offcanvasActive : ""}`}
-                onClick={() => {
-                  setActiveHref(href);
-                  setOffcanvasOpen(false);
-                }}
-              >
-                {label}
-              </Link>
-            </li>
+        {/* =====================================================
+            MOBILE LINKS
+        ====================================================== */}
+        <nav className={styles.mobileNavigation}>
+          {navLinks.map((link, index) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`${styles.mobileLink} ${
+                isActive(link.href) ? styles.mobileLinkActive : ""
+              }`}
+              onClick={() => setOffcanvasOpen(false)}
+            >
+              <span className={styles.mobileLinkNumber}>
+                {String(index + 1).padStart(2, "0")}
+              </span>
+
+              <span className={styles.mobileLinkText}>{link.label}</span>
+
+              <span className={styles.mobileLinkArrow}>→</span>
+            </Link>
           ))}
-        </ul>
-      </div>
+
+          {/* Join */}
+          <Link
+            href="/join"
+            className={`${styles.mobileJoin} ${
+              isActive("/join") ? styles.mobileJoinActive : ""
+            }`}
+            onClick={() => setOffcanvasOpen(false)}
+          >
+            <span>JOIN THE CLUB</span>
+            <span>→</span>
+          </Link>
+        </nav>
+
+        {/* =====================================================
+            DRAWER FOOTER
+        ====================================================== */}
+        <div className={styles.drawerFooter}>
+          <div>
+            <span className={styles.footerLabel}>SHAURI MOYO</span>
+
+            <span className={styles.footerText}>Pathfinder Club</span>
+          </div>
+
+          <div className={styles.footerStatus}>
+            <span className={styles.statusDot}></span>
+            <span>ACTIVE</span>
+          </div>
+        </div>
+      </aside>
     </>
   );
 }
+
+// "use client";
+
+// import { useState, useEffect } from "react";
+// import Link from "next/link";
+// import Image from "next/image";
+// import styles from "./styles/navbar.module.css";
+// import { label } from "framer-motion/client";
+
+// const navLinks = [
+//   { label: "Home", href: "/" },
+//   { label: "About Us", href: "../../pages/about" },
+//   { label: "Programme", href: "../../pages/programme" },
+//   { label: "Gallery", href: "../../pages/gallery" },
+//   { label: "Join Us", href: "/join" },
+//   { label: "Contact", href: "../../pages/contact" },
+//   { label: "Sign Up", href: "../../pages/sign-Up" },
+// ];
+
+// export default function Navbar() {
+//   const [offcanvasOpen, setOffcanvasOpen] = useState(false);
+//   const [scrolled, setScrolled] = useState(false);
+//   const [activeHref, setActiveHref] = useState("/");
+
+//   useEffect(() => {
+//     const onScroll = () => setScrolled(window.scrollY > 20);
+//     window.addEventListener("scroll", onScroll);
+//     return () => window.removeEventListener("scroll", onScroll);
+//   }, []);
+
+//   useEffect(() => {
+//     document.body.style.overflow = offcanvasOpen ? "hidden" : "";
+//     return () => {
+//       document.body.style.overflow = "";
+//     };
+//   }, [offcanvasOpen]);
+
+//   return (
+//     <>
+//       {/* ── Main Navbar ── */}
+//       <nav
+//         className={`navbar navbar-expand-lg   ${styles.navbar} ${scrolled ? styles.scrolled : ""}`}
+//       >
+//         <div className="container-xxl ">
+//           {/* Brand */}
+//           <Link
+//             href="/"
+//             className={`navbar-brand d-flex align-items-center gap-2 ${styles.brand}`}
+//           >
+//             <Image
+//               src="/logoC.png"
+//               alt="Pathfinder Club Logo"
+//               width={70}
+//               height={70}
+//               className={styles.logoImg}
+//               priority
+//             />
+//             <div className={`d-flex flex-column ${styles.brandText}`}>
+//               <span className={styles.brandName}>
+//                 Shauri Moyo Pathfinder Club
+//               </span>
+//               <em className={styles.brandTagline}>Take the Advent Message</em>
+//             </div>
+//           </Link>
+
+//           {/* Hamburger toggler */}
+//           <button
+//             className={`navbar-toggler border-0 shadow-none ${styles.toggler}`}
+//             type="button"
+//             onClick={() => setOffcanvasOpen(true)}
+//             aria-label="Open navigation"
+//           >
+//             <span className={styles.togglerBar} />
+//             <span className={styles.togglerBar} />
+//             <span className={styles.togglerBar} />
+//           </button>
+
+//           {/* Desktop Links */}
+//           <div className="collapse navbar-collapse justify-content-end">
+//             <ul className={`navbar-nav align-items-center ${styles.navList}`}>
+//               {navLinks.map(({ label, href }) => (
+//                 <li className="nav-item" key={label}>
+//                   <Link
+//                     href={href}
+//                     className={`nav-link ${styles.navLink} ${activeHref === href ? styles.active : ""}`}
+//                     onClick={() => setActiveHref(href)}
+//                   >
+//                     {label}
+//                     <span className={styles.underline} />
+//                   </Link>
+//                 </li>
+//               ))}
+//             </ul>
+//           </div>
+//         </div>
+//       </nav>
+
+//       {/* ── Backdrop ── */}
+//       <div
+//         className={styles.backdrop}
+//         style={{
+//           opacity: offcanvasOpen ? 1 : 0,
+//           pointerEvents: offcanvasOpen ? "all" : "none",
+//         }}
+//         onClick={() => setOffcanvasOpen(false)}
+//       />
+
+//       {/* ── Offcanvas Drawer ── */}
+//       <div
+//         className={`${styles.offcanvas} ${offcanvasOpen ? styles.offcanvasOpen : ""}`}
+//       >
+//         {/* Close */}
+//         <div className="d-flex justify-content-end w-100">
+//           <button
+//             className={styles.closeBtn}
+//             onClick={() => setOffcanvasOpen(false)}
+//             aria-label="Close menu"
+//           >
+//             ✕
+//           </button>
+//         </div>
+
+//         {/* Top third – logo + texts */}
+//         <div
+//           className={`d-flex flex-column align-items-center justify-content-center w-100 ${styles.offcanvasTop}`}
+//         >
+//           <Image
+//             src="/logoC.png"
+//             alt="Pathfinder Club Logo"
+//             width={80}
+//             height={80}
+//             className={styles.offcanvasLogoImg}
+//           />
+//           <span className={`mt-3 text-center ${styles.offcanvasBrandName}`}>
+//             Shauri Moyo Pathfinder Club
+//           </span>
+//           <em className={styles.offcanvasTagline}>Take the Advent Message</em>
+//         </div>
+
+//         {/* Divider */}
+//         <hr className={styles.offcanvasDivider} />
+
+//         {/* Centered links */}
+//         <ul className={`navbar-nav w-100 ${styles.offcanvasNavList}`}>
+//           {navLinks.map(({ label, href }) => (
+//             <li className="nav-item text-center" key={label}>
+//               <Link
+//                 href={href}
+//                 className={`nav-link ${styles.offcanvasLink} ${activeHref === href ? styles.offcanvasActive : ""}`}
+//                 onClick={() => {
+//                   setActiveHref(href);
+//                   setOffcanvasOpen(false);
+//                 }}
+//               >
+//                 {label}
+//               </Link>
+//             </li>
+//           ))}
+//         </ul>
+//       </div>
+//     </>
+//   );
+// }
 //=============================================================================
 
 // "use client";

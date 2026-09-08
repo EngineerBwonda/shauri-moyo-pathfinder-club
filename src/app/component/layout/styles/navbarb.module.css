@@ -1,0 +1,854 @@
+/* =========================================================
+   COLOR SYSTEM
+========================================================= */
+
+.navbar {
+  --green-primary: #176b3a;
+  --green-dark: #0d4f2a;
+  --green-accent: #2e8b57;
+  --green-light: #eaf6ef;
+  --green-soft: #f4faf6;
+
+  --text-dark: #17201a;
+  --text-muted: #6b756e;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  z-index: 1000;
+
+  padding: 14px 0;
+
+  background: transparent;
+
+  transition:
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    padding 0.35s ease,
+    backdrop-filter 0.35s ease;
+}
+
+/* =========================================================
+   SCROLLED NAVBAR
+========================================================= */
+
+.scrolled {
+  padding: 8px 0;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid rgba(23, 107, 58, 0.08);
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================================================
+   NAV CONTAINER
+========================================================= */
+
+.navContainer {
+  width: min(94%, 1400px);
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  min-width: 0;
+
+  text-decoration: none;
+}
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logoWrapper {
+  width: 62px;
+  height: 62px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.brand:hover .logoWrapper {
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 25px rgba(23, 107, 58, 0.18);
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  padding: 5px;
+}
+
+/* =========================================================
+   BRAND INFORMATION
+========================================================= */
+
+.brandInfo {
+  display: flex;
+
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+.brandName {
+  display: flex;
+
+  flex-direction: column;
+
+  font-size: clamp(0.9rem, 1.4vw, 1.15rem);
+
+  line-height: 1.15;
+
+  font-weight: 800;
+
+  letter-spacing: -0.02em;
+
+  color: var(--text-dark);
+
+  white-space: nowrap;
+}
+
+.brandName span {
+  font-weight: 500;
+}
+
+.tagline {
+  margin-top: 5px;
+
+  font-size: 0.68rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  color: var(--text-muted);
+}
+
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
+
+.desktopNav {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  padding: 6px;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.16);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.scrolled .desktopNav {
+  background: var(--green-soft);
+}
+
+/* =========================================================
+   DESKTOP NAV LINK
+========================================================= */
+
+.navLink {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 42px;
+
+  padding: 0 17px;
+
+  border-radius: 999px;
+
+  text-decoration: none;
+
+  font-size: 0.88rem;
+
+  font-weight: 600;
+
+  color: #333;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.navLink:hover {
+  color: var(--green-primary);
+
+  background: rgba(23, 107, 58, 0.08);
+
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   ACTIVE DESKTOP LINK
+========================================================= */
+
+.active {
+  color: #ffffff !important;
+
+  background: var(--green-primary);
+
+  box-shadow: 0 5px 15px rgba(23, 107, 58, 0.22);
+}
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.menuButton {
+  width: 48px;
+  height: 48px;
+
+  display: none;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  flex-shrink: 0;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.menuButton:hover {
+  transform: scale(1.04);
+
+  background: var(--green-light);
+}
+
+.menuButton span {
+  width: 20px;
+  height: 2px;
+
+  display: block;
+
+  border-radius: 10px;
+
+  background: var(--green-dark);
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* =========================================================
+   ANIMATED HAMBURGER → X
+========================================================= */
+
+.menuButtonActive span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menuButtonActive span:nth-child(2) {
+  opacity: 0;
+}
+
+.menuButtonActive span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =========================================================
+   BACKDROP
+========================================================= */
+
+.backdrop {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1090;
+
+  background: rgba(5, 20, 12, 0.55);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.backdropVisible {
+  opacity: 1;
+
+  visibility: visible;
+}
+
+/* =========================================================
+   MOBILE DRAWER
+========================================================= */
+
+.mobileDrawer {
+  position: fixed;
+
+  top: 0;
+  right: 0;
+
+  z-index: 1100;
+
+  width: min(88vw, 400px);
+
+  height: 100dvh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding: 24px;
+
+  background: #ffffff;
+
+  box-shadow: -15px 0 50px rgba(0, 0, 0, 0.18);
+
+  transform: translateX(100%);
+
+  transition: transform 0.45s cubic-bezier(0.77, 0, 0.18, 1);
+
+  overflow-y: auto;
+}
+
+.mobileDrawerOpen {
+  transform: translateX(0);
+}
+
+/* =========================================================
+   DRAWER HEADER
+========================================================= */
+
+.drawerHeader {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.drawerLabel {
+  font-size: 0.68rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+
+  color: var(--green-primary);
+}
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.closeButton {
+  position: relative;
+
+  width: 42px;
+  height: 42px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: var(--green-soft);
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.closeButton:hover {
+  background: var(--green-light);
+
+  transform: rotate(90deg);
+}
+
+.closeButton span {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 18px;
+  height: 2px;
+
+  background: var(--green-dark);
+
+  border-radius: 5px;
+}
+
+.closeButton span:first-child {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.closeButton span:last-child {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* =========================================================
+   DRAWER BRAND
+========================================================= */
+
+.drawerBrand {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+  padding: 30px 0 25px;
+}
+
+/* =========================================================
+   DRAWER LOGO
+========================================================= */
+
+.drawerLogo {
+  width: 90px;
+  height: 90px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 15px;
+
+  border-radius: 50%;
+
+  background: var(--green-soft);
+
+  border: 1px solid rgba(23, 107, 58, 0.08);
+
+  box-shadow: 0 10px 30px rgba(23, 107, 58, 0.1);
+}
+
+.drawerLogo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  padding: 7px;
+}
+
+.drawerBrand h2 {
+  margin: 0;
+
+  font-size: 1.3rem;
+
+  font-weight: 800;
+
+  color: var(--text-dark);
+}
+
+.drawerBrand p {
+  margin: 3px 0 7px;
+
+  font-size: 0.95rem;
+
+  font-weight: 500;
+
+  color: #555;
+}
+
+.drawerBrand > span {
+  font-size: 0.67rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.12em;
+
+  color: var(--green-primary);
+
+  font-weight: 700;
+}
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.divider {
+  width: 100%;
+
+  height: 1px;
+
+  margin-bottom: 14px;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(23, 107, 58, 0.18),
+    transparent
+  );
+}
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+.mobileNav {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+/* =========================================================
+   MOBILE NAV LINK
+========================================================= */
+
+.mobileNavLink {
+  display: grid;
+
+  grid-template-columns: 35px 1fr auto;
+
+  align-items: center;
+
+  gap: 10px;
+
+  min-height: 58px;
+
+  padding: 0 14px;
+
+  border-radius: 12px;
+
+  text-decoration: none;
+
+  color: #333;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.mobileNavLink:hover {
+  background: var(--green-soft);
+
+  color: var(--green-primary);
+
+  transform: translateX(4px);
+}
+
+/* =========================================================
+   MOBILE NUMBER
+========================================================= */
+
+.mobileNumber {
+  font-size: 0.68rem;
+
+  font-weight: 700;
+
+  color: #aaa;
+}
+
+/* =========================================================
+   MOBILE LINK TEXT
+========================================================= */
+
+.mobileLinkText {
+  font-size: 1rem;
+
+  font-weight: 600;
+}
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.arrow {
+  font-size: 1.2rem;
+
+  color: #aaa;
+
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+.mobileNavLink:hover .arrow {
+  color: var(--green-primary);
+
+  transform: translateX(4px);
+}
+
+/* =========================================================
+   ACTIVE MOBILE LINK
+========================================================= */
+
+.mobileActive {
+  color: #ffffff !important;
+
+  background: var(--green-primary);
+
+  box-shadow: 0 8px 20px rgba(23, 107, 58, 0.2);
+}
+
+.mobileActive .mobileNumber,
+.mobileActive .arrow {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* =========================================================
+   DRAWER FOOTER
+========================================================= */
+
+.drawerFooter {
+  margin-top: auto;
+
+  padding-top: 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 10px;
+
+  border-top: 1px solid #eeeeee;
+
+  font-size: 0.58rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  color: #999;
+}
+
+.drawerFooter div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.drawerFooter div span:first-child {
+  color: var(--green-primary);
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+  .desktopNav {
+    display: none;
+  }
+
+  .menuButton {
+    display: flex;
+  }
+
+  .navbar {
+    padding: 12px 0;
+  }
+
+  .scrolled {
+    padding: 8px 0;
+  }
+
+  .logoWrapper {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 576px) {
+  .navContainer {
+    width: calc(100% - 28px);
+  }
+
+  .brand {
+    gap: 9px;
+  }
+
+  .logoWrapper {
+    width: 48px;
+    height: 48px;
+  }
+
+  .brandName {
+    font-size: 0.82rem;
+  }
+
+  .tagline {
+    font-size: 0.55rem;
+
+    letter-spacing: 0.08em;
+  }
+
+  .menuButton {
+    width: 44px;
+    height: 44px;
+  }
+
+  .mobileDrawer {
+    width: min(92vw, 380px);
+
+    padding: 20px;
+  }
+
+  .drawerBrand {
+    padding: 25px 0 20px;
+  }
+
+  .drawerLogo {
+    width: 78px;
+    height: 78px;
+  }
+
+  .mobileNavLink {
+    min-height: 54px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+  .brandName {
+    font-size: 0.75rem;
+  }
+
+  .tagline {
+    display: none;
+  }
+
+  .logoWrapper {
+    width: 44px;
+    height: 44px;
+  }
+
+  .mobileDrawer {
+    width: 100%;
+  }
+
+  .mobileNavLink {
+    min-height: 52px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.navLink:focus-visible,
+.menuButton:focus-visible,
+.mobileNavLink:focus-visible,
+.closeButton:focus-visible {
+  outline: 3px solid rgba(23, 107, 58, 0.3);
+
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .mobileDrawer,
+  .backdrop,
+  .navLink,
+  .mobileNavLink,
+  .menuButton,
+  .logoWrapper,
+  .closeButton,
+  .arrow {
+    transition: none;
+  }
+}
