@@ -1,0 +1,607 @@
+.page {
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+
+  background: #f7f8f6;
+}
+
+/* =====================================================
+   VISUAL SECTION
+===================================================== */
+
+.visualSection {
+  position: relative;
+
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(135deg, rgba(20, 70, 45, 0.93), rgba(9, 42, 28, 0.97)),
+    url("/images/pathfinder-register.jpg");
+
+  background-size: cover;
+  background-position: center;
+}
+
+.visualOverlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 255, 255, 0.12),
+      transparent 30%
+    ),
+    linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3));
+}
+
+.visualContent {
+  position: relative;
+
+  z-index: 2;
+
+  min-height: 100vh;
+
+  max-width: 680px;
+
+  padding: 48px 8%;
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  color: white;
+}
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo,
+.mobileLogo {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  text-decoration: none;
+  color: inherit;
+}
+
+.logoMark {
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.14);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.logo strong,
+.mobileLogo strong {
+  display: block;
+
+  font-size: 14px;
+  letter-spacing: 1.5px;
+}
+
+.logo span,
+.mobileLogo span {
+  display: block;
+
+  margin-top: 2px;
+
+  font-size: 8px;
+
+  letter-spacing: 2px;
+
+  opacity: 0.7;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.heroContent {
+  max-width: 570px;
+
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 13px;
+
+  margin-bottom: 24px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  border-radius: 100px;
+
+  background: rgba(255, 255, 255, 0.09);
+
+  font-size: 12px;
+  font-weight: 600;
+
+  backdrop-filter: blur(10px);
+}
+
+.heroContent h1 {
+  margin: 0;
+
+  font-size: clamp(45px, 5vw, 70px);
+
+  line-height: 1;
+
+  letter-spacing: -3px;
+
+  font-weight: 800;
+}
+
+.heroContent h1 span {
+  display: block;
+
+  color: #c9e8d1;
+}
+
+.heroContent > p {
+  max-width: 530px;
+
+  margin-top: 25px;
+
+  color: rgba(255, 255, 255, 0.73);
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+/* =====================================================
+   BENEFITS
+===================================================== */
+
+.benefits {
+  display: flex;
+  flex-direction: column;
+
+  gap: 13px;
+
+  margin-top: 35px;
+}
+
+.benefit {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+}
+
+.benefitIcon {
+  width: 35px;
+  height: 35px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  color: #c9e8d1;
+}
+
+.benefit strong {
+  display: block;
+
+  margin-bottom: 2px;
+
+  font-size: 12px;
+}
+
+.benefit span {
+  color: rgba(255, 255, 255, 0.58);
+
+  font-size: 11px;
+}
+
+/* =====================================================
+   BOTTOM MESSAGE
+===================================================== */
+
+.bottomMessage {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+}
+
+.bottomMessage span {
+  width: 35px;
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.bottomMessage p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.6);
+
+  font-size: 12px;
+  font-style: italic;
+}
+
+/* =====================================================
+   FORM SECTION
+===================================================== */
+
+.formSection {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px;
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 470px;
+}
+
+.mobileLogo {
+  display: none;
+
+  color: #173522;
+}
+
+.formHeader {
+  margin-bottom: 27px;
+}
+
+.formEyebrow {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: #347a4c;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.formHeader h2 {
+  margin: 0;
+
+  color: #17251c;
+
+  font-size: 34px;
+
+  line-height: 1.15;
+
+  letter-spacing: -1.5px;
+}
+
+.formHeader p {
+  margin-top: 10px;
+
+  color: #718078;
+
+  font-size: 13px;
+}
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 17px;
+}
+
+.nameGrid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.inputGroup label {
+  color: #34443a;
+
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.inputWrapper,
+.selectWrapper {
+  height: 49px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 14px;
+
+  border: 1px solid #dce4de;
+
+  border-radius: 11px;
+
+  background: white;
+
+  color: #8a9890;
+
+  transition: 0.2s ease;
+}
+
+.inputWrapper:focus-within,
+.selectWrapper:focus-within {
+  border-color: #347a4c;
+
+  box-shadow: 0 0 0 4px rgba(52, 122, 76, 0.07);
+}
+
+.inputWrapper input,
+.selectWrapper select {
+  width: 100%;
+
+  margin-left: 10px;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #1c2921;
+
+  font-size: 13px;
+}
+
+.inputWrapper input::placeholder {
+  color: #a3ada7;
+}
+
+.selectWrapper select {
+  cursor: pointer;
+
+  appearance: none;
+}
+
+.passwordButton {
+  border: none;
+
+  background: transparent;
+
+  color: #89968f;
+
+  cursor: pointer;
+
+  display: grid;
+  place-items: center;
+}
+
+/* =====================================================
+   TERMS
+===================================================== */
+
+.termsCheck {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 9px;
+
+  margin-top: 2px;
+
+  color: #758078;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+
+  cursor: pointer;
+}
+
+.termsCheck input {
+  margin-top: 2px;
+
+  accent-color: #347a4c;
+}
+
+/* =====================================================
+   SUBMIT
+===================================================== */
+
+.submitButton {
+  height: 51px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  border: none;
+
+  border-radius: 11px;
+
+  background: #245b38;
+
+  color: white;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.submitButton:hover {
+  background: #1c4b2d;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 8px 20px rgba(36, 91, 56, 0.2);
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+
+  cursor: not-allowed;
+}
+
+/* =====================================================
+   SPINNER
+===================================================== */
+
+.spinner {
+  width: 16px;
+  height: 16px;
+
+  border-radius: 50%;
+
+  border: 2px solid rgba(255, 255, 255, 0.3);
+
+  border-top-color: white;
+
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+.loginPrompt {
+  display: flex;
+  justify-content: center;
+
+  gap: 5px;
+
+  margin-top: 25px;
+
+  font-size: 12px;
+}
+
+.loginPrompt span {
+  color: #7b877f;
+}
+
+.loginPrompt a {
+  color: #347a4c;
+
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.loginPrompt a:hover {
+  text-decoration: underline;
+}
+
+/* =====================================================
+   SECURITY
+===================================================== */
+
+.securityNote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  margin-top: 19px;
+
+  color: #9aa49e;
+
+  font-size: 10px;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1000px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+
+  .visualSection {
+    display: none;
+  }
+
+  .formSection {
+    min-height: 100vh;
+  }
+
+  .mobileLogo {
+    display: flex;
+
+    margin-bottom: 45px;
+  }
+}
+
+@media (max-width: 600px) {
+  .formSection {
+    padding: 25px 20px;
+
+    align-items: flex-start;
+  }
+
+  .formContainer {
+    max-width: 100%;
+  }
+
+  .mobileLogo {
+    margin-bottom: 50px;
+  }
+
+  .formHeader h2 {
+    font-size: 29px;
+  }
+
+  .nameGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .form {
+    gap: 16px;
+  }
+}

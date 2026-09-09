@@ -116,12 +116,12 @@ export default function Navbar() {
               {/* JOIN US CTA */}
               <li className={styles.navItem}>
                 <Link
-                  href="/join"
+                  href="../../pages/login"
                   className={`${styles.joinButton} ${
-                    isActive("/join") ? styles.joinActive : ""
+                    isActive("/login") ? styles.joinActive : ""
                   }`}
                 >
-                  <span>JOIN US</span>
+                  <span>SIGN UP</span>
 
                   <span className={styles.joinArrow}>→</span>
                 </Link>
