@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import styles from "../layout/";
+import styles from "../layout";
 
 const navLinks = [
   { label: "Home", href: "/" },

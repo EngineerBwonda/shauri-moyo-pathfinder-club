@@ -1,0 +1,158 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   CTA STRIP — Call to Action Component
+     Theme: Pathfinder green · white · soft green
+───────────────────────────────────────────────────────────────────────────── */
+
+/* ── SECTION WRAPPER ───────────────────────────────────────────────────────── */
+.wrapper {
+  background: #f2f8f3;
+  padding: 72px 0 88px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.container {
+  max-width: 860px;
+}
+
+/* ── CTA BOX ────────────────────────────────────────────────────────────────── */
+.ctaBox {
+  background: linear-gradient(135deg, #14532d, #15803d);
+  border-radius: 22px;
+  padding: 44px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* ── TEXT CONTENT ──────────────────────────────────────────────────────────── */
+.textContent {
+  flex: 1;
+  min-width: 200px;
+}
+
+.title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.description {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.95rem;
+  color: #86efac;
+  line-height: 1.6;
+  max-width: 400px;
+  margin: 0;
+}
+
+/* ── BUTTON WRAPPER ────────────────────────────────────────────────────────── */
+.buttonWrapper {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+/* ── CTA BUTTON ────────────────────────────────────────────────────────────── */
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #15803d;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 13px 26px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  background: #f8fafc;
+}
+
+.ctaButton svg {
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.ctaButton:hover svg {
+  transform: translateX(4px);
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 50px 0 60px;
+  }
+
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .ctaBox {
+    padding: 32px 28px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    border-radius: 18px;
+  }
+
+  .textContent {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+
+  .buttonWrapper {
+    width: 100%;
+  }
+
+  .ctaButton {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .wrapper {
+    padding: 40px 0 50px;
+  }
+
+  .ctaBox {
+    padding: 28px 20px;
+    border-radius: 16px;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .description {
+    font-size: 0.85rem;
+  }
+
+  .ctaButton {
+    font-size: 0.85rem;
+    padding: 12px 18px;
+  }
+}

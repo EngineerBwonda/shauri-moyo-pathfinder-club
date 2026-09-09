@@ -31,6 +31,20 @@ const COL_THREE = {
   ],
 };
 
+const COL_FOUR = {
+  heading: "Get Involved",
+  links: [
+    { label: "Enrol Your Child", href: "/join" },
+    { label: "Volunteer / Counsel", href: "/volunteer" },
+    { label: "Upcoming Events", href: "/events" },
+    { label: "Honour Badges", href: "/badges" },
+    { label: "Contact Us", href: "/contact" },
+    { label: "FAQ", href: "/#faq" },
+  ],
+};
+
+// ─── Social icons ────────────────────────────────────────────────────────────
+
 // Social icon definitions — replace hrefs with real URLs
 const SOCIALS = [
   {
@@ -414,7 +428,6 @@ export default function Footer() {
             />
           </div>
 
-          {/* ════ COLUMN 3 — Get Involved ════ */}
           <div className="col-6 col-md-3 col-lg-4">
             <LinkColumn
               heading={COL_THREE.heading}
@@ -422,6 +435,16 @@ export default function Footer() {
               colIndex={2}
             />
           </div>
+
+          {/* <div className="col-6 col-md-3 col-lg-4">
+            <LinkColumn
+              heading={COL_FOUR.heading}
+              links={COL_FOUR.links}
+              colIndex={3}
+            />
+          </div> */}
+
+          {/* ════ COLUMN 3 — Get Involved ════ */}
         </div>
       </div>
 

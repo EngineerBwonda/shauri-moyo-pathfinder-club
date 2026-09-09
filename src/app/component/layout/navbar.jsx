@@ -8,10 +8,11 @@ import styles from "./styles/navbar2.module.css";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/pages/about" },
-  { label: "Programme", href: "/pages/programme" },
+  { label: "About Us", href: "/pages/aboutus" },
+  { label: "Programme", href: "/pages/programmeb" },
   { label: "Gallery", href: "/pages/gallery" },
-  { label: "Contact", href: "/pages/contact" },
+  { label: "Contact Us", href: "/pages/contact" },
+  { label: "Course", href: "/pages/course" },
 ];
 
 export default function Navbar() {

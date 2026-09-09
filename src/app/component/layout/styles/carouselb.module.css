@@ -1,0 +1,570 @@
+/* ============================================================================
+   HERO CAROUSEL — CSS Module
+   ============================================================================ */
+
+/* ============================================================================
+   FONTS
+   ============================================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+
+/* ============================================================================
+   ROOT
+   ============================================================================ */
+
+.hero {
+  --green-dark: #14532d;
+  --green: #15803d;
+  --green-bright: #16a34a;
+  --green-light: #4ade80;
+  --green-pale: #dcfce7;
+  --page-bg: #f2f8f3;
+  --text-dark: #123b24;
+  --text-muted: #4b7a5c;
+
+  position: relative;
+  width: 100%;
+  min-height: 680px;
+  height: min(78vh, 760px);
+  overflow: hidden;
+
+  background: var(--green-dark);
+
+  isolation: isolate;
+}
+
+.heroImageLayer {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 40, 15, 0.88) 0%,
+      rgba(10, 40, 15, 0.55) 42%,
+      rgba(10, 40, 15, 0.18) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(10, 40, 15, 0.92) 0%,
+      rgba(10, 40, 15, 0.15) 60%,
+      rgba(0, 0, 0, 0.1) 100%
+    );
+}
+
+.heroAccentLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background: linear-gradient(
+    90deg,
+    var(--green-bright),
+    var(--green-light),
+    var(--green-bright)
+  );
+
+  z-index: 10;
+}
+
+/* ============================================================================
+   HERO ARCHIVE LABEL
+   ============================================================================ */
+
+.heroArchiveLabel {
+  position: absolute;
+  top: 28px;
+  left: 34px;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 8px 13px;
+
+  color: rgba(255, 255, 255, 0.88);
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(10, 40, 15, 0.35);
+
+  backdrop-filter: blur(10px);
+
+  z-index: 8;
+}
+
+.liveDot {
+  width: 6px;
+  height: 6px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--green-light);
+
+  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.12);
+}
+
+/* ============================================================================
+   HERO COUNTER
+   ============================================================================ */
+
+.heroCounter {
+  position: absolute;
+  top: 28px;
+  right: 34px;
+
+  display: flex;
+  align-items: center;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+
+  color: #fff;
+
+  padding: 8px 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(10, 40, 15, 0.35);
+
+  backdrop-filter: blur(10px);
+
+  z-index: 8;
+}
+
+.counterDivider {
+  margin: 0 7px;
+  opacity: 0.4;
+}
+
+/* ============================================================================
+   HERO CONTENT
+   ============================================================================ */
+
+.heroContent {
+  position: absolute;
+
+  left: max(34px, calc((100% - 1180px) / 2));
+
+  right: max(34px, calc((100% - 1180px) / 2));
+
+  bottom: 105px;
+
+  z-index: 6;
+}
+
+.heroMeta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 14px;
+
+  color: var(--green-light);
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.metaSeparator {
+  opacity: 0.45;
+}
+
+.heroTitleRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 40px;
+}
+
+.heroTitle {
+  max-width: 760px;
+
+  margin: 0 0 13px;
+
+  color: #fff;
+
+  font-family: "Playfair Display", Georgia, serif;
+
+  font-size: clamp(2.1rem, 5vw, 4rem);
+
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.28);
+}
+
+.heroCaption {
+  max-width: 620px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 0.93rem;
+  line-height: 1.7;
+}
+
+/* ============================================================================
+   HERO TYPE
+   ============================================================================ */
+
+.heroType {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  flex-shrink: 0;
+
+  padding: 9px 12px;
+
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(10, 40, 15, 0.28);
+
+  backdrop-filter: blur(8px);
+}
+
+.heroTypeIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 25px;
+  height: 25px;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.cameraIcon {
+  font-size: 7px;
+  font-weight: 700;
+}
+
+/* ============================================================================
+   HERO NAVIGATION
+   ============================================================================ */
+
+.heroNavigation {
+  position: absolute;
+
+  left: max(34px, calc((100% - 1180px) / 2));
+
+  bottom: 31px;
+
+  display: flex;
+  gap: 7px;
+
+  z-index: 9;
+}
+
+.heroNavButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 43px;
+  height: 43px;
+
+  padding: 0;
+
+  color: #fff;
+
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.1);
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.heroNavButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.heroNavButton:focus-visible {
+  outline: 2px solid var(--green-light);
+  outline-offset: 3px;
+}
+
+/* ============================================================================
+   HERO INDICATORS
+   ============================================================================ */
+
+.heroIndicators {
+  position: absolute;
+
+  right: max(34px, calc((100% - 1180px) / 2));
+
+  bottom: 48px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  z-index: 9;
+}
+
+.heroIndicator {
+  width: 24px;
+  height: 3px;
+
+  padding: 0;
+
+  border: 0;
+
+  background: rgba(255, 255, 255, 0.28);
+
+  cursor: pointer;
+
+  transition:
+    width 0.35s ease,
+    background 0.35s ease;
+}
+
+.heroIndicatorActive {
+  width: 44px;
+  background: var(--green-light);
+}
+
+/* ============================================================================
+   HERO THUMBNAIL RAIL
+   ============================================================================ */
+
+.heroThumbnailRail {
+  position: absolute;
+
+  right: max(34px, calc((100% - 1180px) / 2));
+
+  bottom: 94px;
+
+  display: flex;
+  gap: 8px;
+
+  z-index: 9;
+}
+
+.heroThumbnail {
+  position: relative;
+
+  width: 72px;
+  height: 48px;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  background: rgba(10, 40, 15, 0.5);
+
+  cursor: pointer;
+
+  opacity: 0.62;
+
+  transition:
+    opacity 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.heroThumbnail:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.heroThumbnailActive {
+  opacity: 1;
+
+  border-color: var(--green-light);
+
+  box-shadow: 0 0 0 1px var(--green-light);
+}
+
+.thumbnailNumber {
+  position: absolute;
+
+  top: 4px;
+  left: 5px;
+
+  z-index: 3;
+
+  color: #fff;
+
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+
+  text-shadow: 0 1px 5px #000;
+}
+
+.thumbnailImage {
+  position: absolute;
+  inset: 0;
+}
+
+.thumbnailImg {
+  object-fit: cover;
+}
+
+/* ============================================================================
+   RESPONSIVE — TABLET
+   ============================================================================ */
+
+@media (max-width: 1000px) {
+  .hero {
+    min-height: 620px;
+    height: 72vh;
+  }
+
+  .heroContent {
+    bottom: 100px;
+  }
+
+  .heroTitleRow {
+    display: block;
+  }
+
+  .heroType {
+    display: none;
+  }
+}
+
+/* ============================================================================
+   RESPONSIVE — MOBILE
+   ============================================================================ */
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: 650px;
+    height: 82vh;
+  }
+
+  .heroOverlay {
+    background: linear-gradient(
+      0deg,
+      rgba(10, 40, 15, 0.94) 0%,
+      rgba(10, 40, 15, 0.5) 55%,
+      rgba(10, 40, 15, 0.18) 100%
+    );
+  }
+
+  .heroArchiveLabel {
+    top: 17px;
+    left: 14px;
+
+    padding: 7px 9px;
+
+    font-size: 8px;
+  }
+
+  .heroCounter {
+    top: 17px;
+    right: 14px;
+
+    padding: 7px 9px;
+  }
+
+  .heroContent {
+    left: 14px;
+    right: 14px;
+
+    bottom: 115px;
+  }
+
+  .heroTitle {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .heroCaption {
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+  .heroNavigation {
+    left: 14px;
+    bottom: 25px;
+  }
+
+  .heroIndicators {
+    right: 14px;
+    bottom: 44px;
+  }
+
+  .heroThumbnailRail {
+    display: none;
+  }
+}
+
+/* ============================================================================
+   RESPONSIVE — SMALL MOBILE
+   ============================================================================ */
+
+@media (max-width: 430px) {
+  .hero {
+    min-height: 590px;
+  }
+
+  .heroArchiveLabel {
+    max-width: 190px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroMeta {
+    font-size: 9px;
+  }
+
+  .heroCaption {
+    max-width: 100%;
+
+    font-size: 0.78rem;
+  }
+}
+
+/* ============================================================================
+   REDUCED MOTION
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .heroNavButton,
+  .heroThumbnail {
+    transition: none;
+  }
+}
