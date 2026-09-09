@@ -10,6 +10,7 @@ import TestimonialsSection from "./component/layout/testimonial";
 import Faq from "./component/layout/faq";
 import Footer from "./component/layout/footer";
 import ImageSectionB from "./component/layout/image2section";
+import Carouselb from "./component/layout/carouselb";
 
 export default function Home() {
   // const heroSlides = [
@@ -75,13 +76,15 @@ export default function Home() {
         interval   → ms between slides (default 5000)
         showIndicators / showControls → toggle nav elements
       */}
-      <Carousel
+      {/* <Carousel
         images={slides}
         height="800px"
         interval={5000}
         showIndicators
         showControls
-      />
+      /> */}
+
+      <Carouselb />
 
       {/* <Carousel
         images={heroSlides}
