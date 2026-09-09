@@ -1,0 +1,585 @@
+.page {
+  position: relative;
+
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(52, 122, 76, 0.08),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 90%,
+      rgba(52, 122, 76, 0.08),
+      transparent 30%
+    ),
+    #f7f9f7;
+
+  color: #17251c;
+}
+
+/* =====================================================
+   BACKGROUND SHAPES
+===================================================== */
+
+.backgroundShapeOne {
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  top: -220px;
+  left: -180px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(52, 122, 76, 0.08);
+}
+
+.backgroundShapeTwo {
+  position: absolute;
+
+  width: 550px;
+  height: 550px;
+
+  right: -300px;
+  bottom: -300px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(52, 122, 76, 0.08);
+}
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  max-width: 900px;
+
+  padding: 35px 30px;
+}
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 11px;
+
+  text-decoration: none;
+
+  color: #173522;
+}
+
+.logoMark {
+  width: 43px;
+  height: 43px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 12px;
+
+  background: #245b38;
+
+  color: white;
+
+  font-size: 19px;
+  font-weight: 900;
+
+  box-shadow: 0 8px 20px rgba(36, 91, 56, 0.15);
+}
+
+.logoText strong {
+  display: block;
+
+  font-size: 14px;
+
+  letter-spacing: 1.5px;
+}
+
+.logoText span {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #7d8a82;
+
+  font-size: 8px;
+
+  letter-spacing: 2px;
+}
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.content {
+  max-width: 650px;
+
+  margin: 55px auto 20px;
+
+  text-align: center;
+}
+
+/* =====================================================
+   ILLUSTRATION
+===================================================== */
+
+.illustration {
+  position: relative;
+
+  width: 150px;
+  height: 150px;
+
+  margin: 0 auto 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.compassCircle {
+  position: relative;
+
+  width: 140px;
+  height: 140px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: linear-gradient(145deg, #ffffff, #edf3ee);
+
+  border: 1px solid #dce6df;
+
+  box-shadow: 0 20px 50px rgba(31, 67, 44, 0.1);
+}
+
+.compass {
+  position: absolute;
+
+  color: #245b38;
+
+  opacity: 0.13;
+}
+
+.number {
+  position: relative;
+
+  z-index: 2;
+
+  color: #245b38;
+
+  font-size: 31px;
+
+  font-weight: 900;
+
+  letter-spacing: -1px;
+}
+
+.toolBadge {
+  position: absolute;
+
+  right: -3px;
+  bottom: 5px;
+
+  width: 43px;
+  height: 43px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 13px;
+
+  background: #245b38;
+
+  color: white;
+
+  border: 4px solid #f7f9f7;
+
+  box-shadow: 0 8px 20px rgba(36, 91, 56, 0.2);
+}
+
+/* =====================================================
+   BADGE
+===================================================== */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 8px 13px;
+
+  margin-bottom: 18px;
+
+  border-radius: 100px;
+
+  background: rgba(52, 122, 76, 0.08);
+
+  border: 1px solid rgba(52, 122, 76, 0.13);
+
+  color: #347a4c;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+/* =====================================================
+   HEADING
+===================================================== */
+
+.content h1 {
+  margin: 0;
+
+  color: #17251c;
+
+  font-size: clamp(42px, 6vw, 68px);
+
+  line-height: 1.02;
+
+  letter-spacing: -3px;
+
+  font-weight: 850;
+}
+
+.content h1 span {
+  display: block;
+
+  color: #347a4c;
+}
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.description {
+  max-width: 550px;
+
+  margin: 23px auto 0;
+
+  color: #718078;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+/* =====================================================
+   MESSAGE BOX
+===================================================== */
+
+.messageBox {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 13px;
+
+  max-width: 510px;
+
+  margin: 27px auto 0;
+
+  padding: 17px;
+
+  text-align: left;
+
+  border: 1px solid #dce6df;
+
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, 0.8);
+
+  box-shadow: 0 8px 30px rgba(26, 53, 36, 0.05);
+}
+
+.messageIcon {
+  width: 37px;
+  height: 37px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 10px;
+
+  background: rgba(52, 122, 76, 0.09);
+
+  color: #347a4c;
+}
+
+.messageBox strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #24352a;
+
+  font-size: 13px;
+}
+
+.messageBox p {
+  margin: 0;
+
+  color: #7b877f;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+}
+
+/* =====================================================
+   ACTIONS
+===================================================== */
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-top: 28px;
+}
+
+.primaryButton,
+.secondaryButton {
+  min-height: 48px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 0 19px;
+
+  border-radius: 11px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.primaryButton {
+  border: 1px solid #245b38;
+
+  background: #245b38;
+
+  color: white;
+
+  box-shadow: 0 8px 18px rgba(36, 91, 56, 0.15);
+}
+
+.primaryButton:hover {
+  background: #1c4b2d;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 12px 25px rgba(36, 91, 56, 0.2);
+}
+
+.secondaryButton {
+  border: 1px solid #d5dfd8;
+
+  background: white;
+
+  color: #536259;
+}
+
+.secondaryButton:hover {
+  background: #f3f7f4;
+
+  transform: translateY(-2px);
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footerNote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-top: 50px;
+}
+
+.footerLine {
+  width: 35px;
+  height: 1px;
+
+  background: #d5dfd8;
+}
+
+.footerNote p {
+  margin: 0;
+
+  color: #9aa59e;
+
+  font-size: 10px;
+
+  font-style: italic;
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 700px) {
+  .container {
+    padding: 25px 20px;
+  }
+
+  .content {
+    margin-top: 50px;
+  }
+
+  .content h1 {
+    font-size: 47px;
+
+    letter-spacing: -2px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 500px) {
+  .page {
+    align-items: flex-start;
+  }
+
+  .container {
+    padding: 22px 17px;
+  }
+
+  .content {
+    margin-top: 55px;
+  }
+
+  .logoMark {
+    width: 39px;
+    height: 39px;
+
+    border-radius: 10px;
+  }
+
+  .logoText strong {
+    font-size: 12px;
+  }
+
+  .logoText span {
+    font-size: 7px;
+  }
+
+  .illustration {
+    width: 125px;
+    height: 125px;
+
+    margin-bottom: 22px;
+  }
+
+  .compassCircle {
+    width: 120px;
+    height: 120px;
+  }
+
+  .compass {
+    width: 60px;
+  }
+
+  .number {
+    font-size: 27px;
+  }
+
+  .toolBadge {
+    width: 38px;
+    height: 38px;
+
+    right: -3px;
+    bottom: 0;
+  }
+
+  .content h1 {
+    font-size: 42px;
+
+    letter-spacing: -2px;
+  }
+
+  .description {
+    margin-top: 19px;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+  }
+
+  .messageBox {
+    margin-top: 23px;
+
+    padding: 14px;
+
+    border-radius: 13px;
+  }
+
+  .messageBox p {
+    font-size: 10px;
+  }
+
+  .actions {
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+
+  .footerNote {
+    margin-top: 35px;
+  }
+}
