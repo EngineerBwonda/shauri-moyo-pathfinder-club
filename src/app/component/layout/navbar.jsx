@@ -243,15 +243,15 @@ export default function Navbar() {
             </Link>
           ))}
 
-          {/* Join */}
+          {/* Sign Up */}
           <Link
-            href="/join"
+            href="/pages/registration"
             className={`${styles.mobileJoin} ${
-              isActive("/join") ? styles.mobileJoinActive : ""
+              isActive("/pages/registration") ? styles.mobileJoinActive : ""
             }`}
             onClick={() => setOffcanvasOpen(false)}
           >
-            <span>JOIN THE CLUB</span>
+            <span>SIGN UP</span>
             <span>→</span>
           </Link>
         </nav>
