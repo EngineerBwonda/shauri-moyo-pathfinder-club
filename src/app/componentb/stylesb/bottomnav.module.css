@@ -1,0 +1,103 @@
+/* ===== Wrapper (floating container) ===== */
+.wrapper {
+  position: fixed;
+  left: 50%;
+  bottom: max(16px, env(safe-area-inset-bottom, 16px));
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  width: min(92%, 420px);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+
+  border: 1px solid rgba(229, 231, 235, 0.9);
+  border-radius: 999px;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+
+  padding: 6px;
+}
+
+/* ===== Inner list ===== */
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ===== Individual link ===== */
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+
+  padding: 8px 6px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #6b7280;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    transform 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.item:hover {
+  color: #111827;
+}
+
+.item:active {
+  transform: scale(0.94);
+}
+
+/* ===== Icon ===== */
+.icon {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+/* ===== Active state ===== */
+.itemActive {
+  color: #111827;
+  background: #f3f4f6;
+}
+
+.itemActive .icon {
+  stroke-width: 2.4;
+}
+
+/* ===== Label ===== */
+.label {
+  line-height: 1;
+}
+
+/* ===== Special middle link (optional highlight) ===== */
+.itemCenter .icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* ===== Add bottom space to page so navbar doesn't cover content ===== */
+.spacer {
+  height: 96px;
+}
+
+/* ===== Hide on larger screens ===== */
+@media (min-width: 768px) {
+  .wrapper {
+    display: none;
+  }
+}

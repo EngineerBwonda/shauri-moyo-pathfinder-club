@@ -543,6 +543,8 @@
 
   padding: 24px;
 
+  overflow-y: auto;
+
   transform: translateX(105%);
 
   transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1);
@@ -830,6 +832,8 @@
 
 .mobileJoin {
   display: flex;
+
+  flex-shrink: 0;
 
   justify-content: space-between;
   align-items: center;

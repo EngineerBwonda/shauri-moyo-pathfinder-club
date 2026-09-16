@@ -1,0 +1,712 @@
+/* =====================================================
+   ERROR ALERT
+===================================================== */
+
+.errorAlert {
+  padding: 12px 16px;
+  margin-bottom: 20px;
+
+  border: 1px solid #f5c6cb;
+  border-radius: 10px;
+
+  background: #fdecea;
+  color: #b71c1c;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* =====================================================
+   APPROVAL NOTICE
+===================================================== */
+
+.approvalNotice {
+  display: flex;
+  gap: 12px;
+
+  margin-top: 28px;
+  padding: 14px 16px;
+
+  border: 1px solid #dce4de;
+  border-radius: 12px;
+
+  background: #fbfcfb;
+}
+
+.approvalIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #718078;
+}
+
+.approvalNotice strong {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #34443a;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.approvalNotice p {
+  margin: 0;
+
+  color: #7b877f;
+
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  background: #f7f8f6;
+}
+
+/* =====================================================
+   VISUAL SECTION
+===================================================== */
+
+.visualSection {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+
+  background:
+    linear-gradient(135deg, rgba(20, 70, 45, 0.92), rgba(9, 42, 28, 0.96)),
+    url("/images/pathfinder-login.jpg");
+
+  background-size: cover;
+  background-position: center;
+}
+
+.visualOverlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 255, 255, 0.12),
+      transparent 35%
+    ),
+    linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.35));
+}
+
+.visualContent {
+  position: relative;
+  z-index: 2;
+
+  min-height: 100vh;
+  max-width: 680px;
+
+  padding: 48px 8%;
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  color: white;
+}
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo,
+.mobileLogo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  text-decoration: none;
+  color: inherit;
+}
+
+.logoMark {
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.logo strong,
+.mobileLogo strong {
+  display: block;
+
+  font-size: 14px;
+  letter-spacing: 1.5px;
+}
+
+.logo span,
+.mobileLogo span {
+  display: block;
+
+  margin-top: 2px;
+
+  font-size: 8px;
+  letter-spacing: 2px;
+
+  opacity: 0.7;
+}
+
+/* =====================================================
+   HERO TEXT
+===================================================== */
+
+.heroText {
+  margin-top: auto;
+  margin-bottom: auto;
+
+  max-width: 600px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 13px;
+
+  margin-bottom: 24px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 100px;
+
+  background: rgba(255, 255, 255, 0.09);
+
+  font-size: 12px;
+  font-weight: 600;
+
+  backdrop-filter: blur(10px);
+}
+
+.heroText h1 {
+  margin: 0;
+
+  font-size: clamp(42px, 5vw, 70px);
+  line-height: 1.02;
+  letter-spacing: -3px;
+
+  font-weight: 800;
+}
+
+.heroText h1 span {
+  display: block;
+  color: #c9e8d1;
+}
+
+.heroText p {
+  max-width: 540px;
+
+  margin-top: 25px;
+
+  color: rgba(255, 255, 255, 0.75);
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* =====================================================
+   FEATURES
+===================================================== */
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+
+  margin-bottom: 35px;
+}
+
+.feature {
+  display: flex;
+  gap: 12px;
+
+  padding: 16px;
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  backdrop-filter: blur(12px);
+}
+
+.featureIcon {
+  width: 36px;
+  height: 36px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.feature strong {
+  display: block;
+
+  margin-bottom: 4px;
+
+  font-size: 12px;
+}
+
+.feature span {
+  display: block;
+
+  color: rgba(255, 255, 255, 0.6);
+
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* =====================================================
+   QUOTE
+===================================================== */
+
+.quote {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.quoteLine {
+  width: 35px;
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.quote p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 12px;
+  font-style: italic;
+}
+
+/* =====================================================
+   FORM SECTION
+===================================================== */
+
+.formSection {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px;
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 470px;
+}
+
+.formHeader {
+  margin-bottom: 32px;
+}
+
+.formEyebrow {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #347a4c;
+
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.formHeader h2 {
+  margin: 0;
+
+  color: #17251c;
+
+  font-size: 36px;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+}
+
+.formHeader p {
+  margin-top: 12px;
+
+  color: #718078;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Mobile logo */
+
+.mobileLogo {
+  display: none;
+  color: #173522;
+
+  margin-bottom: 45px;
+}
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputGroup label,
+.labelRow label {
+  color: #34443a;
+
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.inputWrapper {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  height: 52px;
+
+  padding: 0 15px;
+
+  border: 1px solid #dce4de;
+  border-radius: 12px;
+
+  background: white;
+
+  color: #8a9890;
+
+  transition: 0.2s ease;
+}
+
+.inputWrapper:focus-within {
+  border-color: #347a4c;
+
+  box-shadow: 0 0 0 4px rgba(52, 122, 76, 0.08);
+}
+
+.inputWrapper input {
+  width: 100%;
+
+  margin-left: 11px;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #1c2921;
+
+  font-size: 14px;
+}
+
+.inputWrapper input::placeholder {
+  color: #a3ada7;
+}
+
+.passwordButton {
+  border: none;
+  background: transparent;
+
+  color: #8a9890;
+
+  cursor: pointer;
+
+  display: grid;
+  place-items: center;
+}
+
+/* =====================================================
+   LABEL ROW
+===================================================== */
+
+.labelRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.labelRow a {
+  color: #347a4c;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+.labelRow a:hover {
+  text-decoration: underline;
+}
+
+/* =====================================================
+   OPTIONS
+===================================================== */
+
+.options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #68766e;
+
+  font-size: 12px;
+
+  cursor: pointer;
+}
+
+.checkbox input {
+  accent-color: #347a4c;
+}
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.submitButton {
+  height: 53px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #245b38;
+  color: white;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.submitButton:hover {
+  background: #1c4b2d;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 8px 20px rgba(36, 91, 56, 0.2);
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* =====================================================
+   SPINNER
+===================================================== */
+
+.spinner {
+  width: 17px;
+  height: 17px;
+
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+
+  border-radius: 50%;
+
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =====================================================
+   DIVIDER
+===================================================== */
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.divider span {
+  flex: 1;
+  height: 1px;
+
+  background: #e4e9e5;
+}
+
+.divider p {
+  margin: 0;
+
+  color: #9aa49e;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* =====================================================
+   GOOGLE
+===================================================== */
+
+.googleButton {
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+
+  border: 1px solid #dce4de;
+  border-radius: 12px;
+
+  background: white;
+  color: #34443a;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.googleButton:hover {
+  background: #f8faf8;
+  border-color: #c8d3cb;
+}
+
+.googleIcon {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+/* =====================================================
+   REGISTER
+===================================================== */
+
+.registerPrompt {
+  margin-top: 30px;
+
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+
+  font-size: 13px;
+}
+
+.registerPrompt span {
+  color: #7b877f;
+}
+
+.registerPrompt a {
+  color: #347a4c;
+
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.registerPrompt a:hover {
+  text-decoration: underline;
+}
+
+.terms {
+  margin-top: 25px;
+
+  color: #9aa49e;
+
+  font-size: 10px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1000px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+
+  .visualSection {
+    display: none;
+  }
+
+  .formSection {
+    min-height: 100vh;
+  }
+
+  .mobileLogo {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .formSection {
+    padding: 28px 20px;
+    align-items: flex-start;
+  }
+
+  .formContainer {
+    max-width: 100%;
+  }
+
+  .mobileLogo {
+    margin-bottom: 55px;
+  }
+
+  .formHeader h2 {
+    font-size: 30px;
+  }
+
+  .formHeader p {
+    font-size: 13px;
+  }
+
+  .form {
+    gap: 19px;
+  }
+}

@@ -116,7 +116,7 @@ export default function Navbar() {
               {/* JOIN US CTA */}
               <li className={styles.navItem}>
                 <Link
-                  href="../../pages/login"
+                  href="/pages/registerc"
                   className={`${styles.joinButton} ${
                     isActive("/login") ? styles.joinActive : ""
                   }`}
@@ -245,9 +245,9 @@ export default function Navbar() {
 
           {/* Sign Up */}
           <Link
-            href="/pages/registration"
+            href="/pages/registerc"
             className={`${styles.mobileJoin} ${
-              isActive("/pages/registration") ? styles.mobileJoinActive : ""
+              isActive("/pages/registerc") ? styles.mobileJoinActive : ""
             }`}
             onClick={() => setOffcanvasOpen(false)}
           >
