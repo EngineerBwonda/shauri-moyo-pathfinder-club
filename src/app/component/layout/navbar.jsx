@@ -222,6 +222,7 @@ export default function Navbar() {
 
         {/* =====================================================
             MOBILE LINKS
+            i like the code 
         ====================================================== */}
         <nav className={styles.mobileNavigation}>
           {navLinks.map((link, index) => (
